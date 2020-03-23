@@ -2,18 +2,21 @@ package request
 
 import (
 	"bytes"
+	//"encoding/json"
 	"fmt"
-	"io"
-	"net/http"
-	"net/url"
-	"reflect"
-	"strings"
-	"time"
-
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/client/metadata"
 	"github.com/aws/aws-sdk-go/internal/sdkio"
+	"io"
+	"log"
+	"net/http"
+	"net/http/httptrace"
+	"net/url"
+	"reflect"
+	//"strconv"
+	"strings"
+	"time"
 )
 
 const (
@@ -31,7 +34,6 @@ const (
 	// ErrCodeInvalidPresignExpire is returned when the expire time provided to
 	// presign is invalid
 	ErrCodeInvalidPresignExpire = "InvalidPresignExpireError"
-
 	// CanceledErrorCode is the error code that will be returned by an
 	// API request that was canceled. Requests given a aws.Context may
 	// return this error when canceled.
@@ -40,6 +42,7 @@ const (
 	// ErrCodeRequestError is an error preventing the SDK from continuing to
 	// process the request.
 	ErrCodeRequestError = "RequestError"
+
 )
 
 // A Request is the service request to be made.
@@ -92,6 +95,7 @@ type Request struct {
 	// to the HTTP request's body after the client has returned. This value is
 	// safe to use concurrently and wrap the input Body for each HTTP request.
 	safeBody *offsetReader
+
 }
 
 // An Operation is the service API operation to be made.
@@ -102,6 +106,25 @@ type Operation struct {
 	*Paginator
 
 	BeforePresignFn func(r *Request) error
+}
+
+var Counter = make(map[string]int)
+
+func incrementCounter(key string) {
+
+	//log.Println("qwer")
+	//fmt.Println(operation.Name)
+
+	if _, found := Counter[key]; found {
+		Counter[key] = Counter[key] + 1
+		//log.Println(x)
+	} else {
+		Counter[key] = 1
+	}
+	//log.Println(Counter)
+
+	log.Println("Requests Counter: ")
+	log.Println(Counter)
 }
 
 // New returns a new Request pointer for the service API operation and
@@ -128,8 +151,44 @@ func New(cfg aws.Config, clientInfo metadata.ClientInfo, handlers Handlers,
 
 	httpReq, _ := http.NewRequest(method, "", nil)
 
+	trace := &httptrace.ClientTrace{
+		/*GotConn: func(connInfo httptrace.GotConnInfo) {
+			//fmt.Println("---------------------------------------------------------------")
+			fmt.Println("Got Conn")
+			var err error
+			httpReq.URL, err = url.Parse(clientInfo.Endpoint + operation.HTTPPath)
+
+
+			out, err := json.Marshal(httpReq.URL)
+			if err != nil {
+				panic (err)
+			}
+
+			fmt.Println("URL: " + string(out))
+			fmt.Println("Operation: " + operation.Name + " ; HTTPpath: " + operation.HTTPPath + " ; HTTPMethod: " + operation.HTTPMethod)
+		},*/
+
+		// ConnectStart is called when a new connection's Dial begins.
+		// If net.Dialer.DualStack (IPv6 "Happy Eyeballs") support is
+		// enabled, this may be called multiple times.
+		ConnectStart: func(network, addr string) {
+			fmt.Println("Connect start")
+			incrementCounter("Connect start")
+		},
+
+		// WroteRequest is called with the result of writing the
+		// request and any body. It may be called multiple times
+		// in the case of retried requests.
+		WroteRequest: func(wr httptrace.WroteRequestInfo) {
+			fmt.Println("Wrote request")
+			incrementCounter(operation.Name)
+		},
+	}
+	httpReq = httpReq.WithContext(httptrace.WithClientTrace(httpReq.Context(), trace))
+
 	var err error
 	httpReq.URL, err = url.Parse(clientInfo.Endpoint + operation.HTTPPath)
+
 	if err != nil {
 		httpReq.URL = &url.URL{}
 		err = awserr.New("InvalidEndpointURL", "invalid endpoint uri", err)
@@ -637,10 +696,6 @@ func SanitizeHostForHeader(r *http.Request) {
 func getHost(r *http.Request) string {
 	if r.Host != "" {
 		return r.Host
-	}
-
-	if r.URL == nil {
-		return ""
 	}
 
 	return r.URL.Host
