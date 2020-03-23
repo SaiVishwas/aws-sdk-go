@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
 )
 
 func (client *DecryptionClient) contentCipherFromEnvelope(ctx aws.Context, env Envelope) (ContentCipher, error) {

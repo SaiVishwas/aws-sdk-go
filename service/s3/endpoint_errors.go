@@ -3,8 +3,8 @@ package s3
 import (
 	"fmt"
 
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/service/s3/internal/arn"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/service/s3/internal/arn"
 )
 
 const (

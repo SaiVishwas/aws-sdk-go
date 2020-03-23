@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/private/protocol/xml/xmlutil"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol/xml/xmlutil"
 )
 
 type xmlErrorResponse struct {

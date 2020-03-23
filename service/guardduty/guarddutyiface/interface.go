@@ -9,9 +9,9 @@
 package guarddutyiface
 
 import (
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/service/guardduty"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/service/guardduty"
 )
 
 // GuardDutyAPI provides an interface to enable mocking the

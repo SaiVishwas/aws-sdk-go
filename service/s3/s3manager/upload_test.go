@@ -20,15 +20,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/awsutil"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/awstesting"
-	"github.com/aws/aws-sdk-go/awstesting/unit"
-	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/aws/aws-sdk-go/service/s3/internal/s3testing"
-	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awsutil"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting/unit"
+	"github.com/SaiVishwas/aws-sdk-go/service/s3"
+	"github.com/SaiVishwas/aws-sdk-go/service/s3/internal/s3testing"
+	"github.com/SaiVishwas/aws-sdk-go/service/s3/s3manager"
 )
 
 var emptyList = []string{}

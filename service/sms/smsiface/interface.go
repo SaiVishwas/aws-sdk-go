@@ -9,9 +9,9 @@
 package smsiface
 
 import (
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/service/sms"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/service/sms"
 )
 
 // SMSAPI provides an interface to enable mocking the

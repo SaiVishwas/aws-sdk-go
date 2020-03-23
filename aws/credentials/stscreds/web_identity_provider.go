@@ -6,12 +6,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/client"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/service/sts"
-	"github.com/aws/aws-sdk-go/service/sts/stsiface"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client"
+	"github.com/SaiVishwas/aws-sdk-go/aws/credentials"
+	"github.com/SaiVishwas/aws-sdk-go/service/sts"
+	"github.com/SaiVishwas/aws-sdk-go/service/sts/stsiface"
 )
 
 const (

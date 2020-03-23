@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awsutil"
-	"github.com/aws/aws-sdk-go/aws/crr"
-	"github.com/aws/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awsutil"
+	"github.com/SaiVishwas/aws-sdk-go/aws/crr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
 )
 
 const opDescribeEndpoints = "DescribeEndpoints"

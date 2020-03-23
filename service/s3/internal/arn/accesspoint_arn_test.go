@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws/arn"
+	"github.com/SaiVishwas/aws-sdk-go/aws/arn"
 )
 
 func TestParseAccessPointResource(t *testing.T) {

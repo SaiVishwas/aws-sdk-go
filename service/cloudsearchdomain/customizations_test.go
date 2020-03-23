@@ -3,9 +3,9 @@ package cloudsearchdomain_test
 import (
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/awstesting/unit"
-	"github.com/aws/aws-sdk-go/service/cloudsearchdomain"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting/unit"
+	"github.com/SaiVishwas/aws-sdk-go/service/cloudsearchdomain"
 )
 
 func TestRequireEndpointIfRegionProvided(t *testing.T) {

@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/awstesting/unit"
-	"github.com/aws/aws-sdk-go/private/protocol"
-	"github.com/aws/aws-sdk-go/private/protocol/eventstream"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/session"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting/unit"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol/eventstream"
 	"golang.org/x/net/http2"
 )
 

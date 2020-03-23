@@ -7,7 +7,7 @@ import (
 	"encoding/xml"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
 )
 
 type implicitPayload struct {

@@ -3,7 +3,7 @@ package s3crypto
 import (
 	"io"
 
-	"github.com/aws/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
 )
 
 const (

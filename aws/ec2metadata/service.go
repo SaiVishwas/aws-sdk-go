@@ -17,12 +17,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/client"
-	"github.com/aws/aws-sdk-go/aws/client/metadata"
-	"github.com/aws/aws-sdk-go/aws/corehandlers"
-	"github.com/aws/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client/metadata"
+	"github.com/SaiVishwas/aws-sdk-go/aws/corehandlers"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
 )
 
 const (
@@ -41,7 +41,7 @@ const (
 	enableTokenProviderHandlerName = "enableTokenProviderHandler"
 
 	// TTL constants
-	defaultTTL = 21600 * time.Second
+	defaultTTL          = 21600 * time.Second
 	ttlExpirationWindow = 30 * time.Second
 )
 

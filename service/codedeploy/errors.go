@@ -3,7 +3,7 @@
 package codedeploy
 
 import (
-	"github.com/aws/aws-sdk-go/private/protocol"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol"
 )
 
 const (

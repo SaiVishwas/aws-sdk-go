@@ -3,12 +3,12 @@
 package restxmlservice
 
 import (
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/client"
-	"github.com/aws/aws-sdk-go/aws/client/metadata"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/aws/signer/v4"
-	"github.com/aws/aws-sdk-go/private/protocol/restxml"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client/metadata"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/aws/signer/v4"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol/restxml"
 )
 
 // RESTXMLService provides the API operation methods for making requests to

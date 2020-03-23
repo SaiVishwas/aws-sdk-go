@@ -6,10 +6,10 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awsutil"
-	"github.com/aws/aws-sdk-go/awstesting/unit"
-	"github.com/aws/aws-sdk-go/service/glacier"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awsutil"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting/unit"
+	"github.com/SaiVishwas/aws-sdk-go/service/glacier"
 )
 
 var (

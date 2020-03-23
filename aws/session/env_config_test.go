@@ -8,11 +8,11 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/endpoints"
-	"github.com/aws/aws-sdk-go/awstesting"
-	"github.com/aws/aws-sdk-go/internal/sdktesting"
-	"github.com/aws/aws-sdk-go/internal/shareddefaults"
+	"github.com/SaiVishwas/aws-sdk-go/aws/credentials"
+	"github.com/SaiVishwas/aws-sdk-go/aws/endpoints"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting"
+	"github.com/SaiVishwas/aws-sdk-go/internal/sdktesting"
+	"github.com/SaiVishwas/aws-sdk-go/internal/shareddefaults"
 )
 
 func TestLoadEnvConfig_Creds(t *testing.T) {

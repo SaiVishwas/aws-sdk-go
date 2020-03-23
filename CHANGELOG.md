@@ -84,10 +84,10 @@ Release v1.29.21 (2020-03-10)
 
 ### SDK Enhancements
 * `aws/credentials`: Clarify `token` usage in `NewStaticCredentials` documentation.
-  * Related to [#3162](https://github.com/aws/aws-sdk-go/issues/3162).
-* `service/s3/s3manager`: Improve memory allocation behavior by replacing sync.Pool with custom pool implementation ([#3183](https://github.com/aws/aws-sdk-go/pull/3183))
+  * Related to [#3162](https://github.com/SaiVishwas/aws-sdk-go/issues/3162).
+* `service/s3/s3manager`: Improve memory allocation behavior by replacing sync.Pool with custom pool implementation ([#3183](https://github.com/SaiVishwas/aws-sdk-go/pull/3183))
   * Improves memory allocations that occur when the provided `io.Reader` to upload does not satisfy both the `io.ReaderAt` and `io.ReadSeeker` interfaces.
-  * Fixes [#3075](https://github.com/aws/aws-sdk-go/issues/3075)
+  * Fixes [#3075](https://github.com/SaiVishwas/aws-sdk-go/issues/3075)
 
 Release v1.29.20 (2020-03-09)
 ===
@@ -133,7 +133,7 @@ Release v1.29.17 (2020-03-04)
   * This release of the Amazon Pinpoint API introduces support for integrating recommender models with email, push notification, and SMS message templates. You can now use these types of templates to connect to recommender models and add personalized recommendations to messages that you send from campaigns and journeys.
 
 ### SDK Bugs
-* `service/s3/s3manager`: Fix resource leak on UploadPart failures ([#3144](https://github.com/aws/aws-sdk-go/pull/3144))
+* `service/s3/s3manager`: Fix resource leak on UploadPart failures ([#3144](https://github.com/SaiVishwas/aws-sdk-go/pull/3144))
 
 Release v1.29.16 (2020-03-03)
 ===
@@ -285,7 +285,7 @@ Release v1.29.3 (2020-02-14)
 ### SDK Enhancements
 * `aws/credentials`: Add support for context when getting credentials.
   * Adds `GetWithContext` to `Credentials` that allows canceling getting the credentials if the context is canceled, or times out. This fixes an issue where API operations would ignore their provide context when waiting for credentials to refresh.
-  * Related to [#3127](https://github.com/aws/aws-sdk-go/pull/3127).
+  * Related to [#3127](https://github.com/SaiVishwas/aws-sdk-go/pull/3127).
 
 Release v1.29.2 (2020-02-13)
 ===
@@ -313,7 +313,7 @@ Release v1.29.1 (2020-02-12)
   * This release adds support for access control rules management  in Amazon WorkMail.
 
 ### SDK Enhancements
-* `aws/credentials`: Add grouping of concurrent refresh of credentials ([#3127](https://github.com/aws/aws-sdk-go/pull/3127/)
+* `aws/credentials`: Add grouping of concurrent refresh of credentials ([#3127](https://github.com/SaiVishwas/aws-sdk-go/pull/3127/)
   * Concurrent calls to `Credentials.Get` are now grouped in order to prevent numerous synchronous calls to refresh the credentials. Replacing the mutex with a singleflight reduces the overall amount of time request signatures need to wait while retrieving credentials. This is improvement becomes pronounced when many requests are being made concurrently.
 
 Release v1.29.0 (2020-02-11)
@@ -403,8 +403,8 @@ Release v1.28.10 (2020-02-04)
   * Adds support for the EC2ThrottledException throttling exception code. The SDK will now treat this error code as throttling.
 
 ### SDK Bugs
-* `aws/request`: Fixes an issue where the HTTP host header did not reflect changes to the endpoint URL ([#3102](https://github.com/aws/aws-sdk-go/pull/3102))
-  * Fixes [#3093](https://github.com/aws/aws-sdk-go/issues/3093)
+* `aws/request`: Fixes an issue where the HTTP host header did not reflect changes to the endpoint URL ([#3102](https://github.com/SaiVishwas/aws-sdk-go/pull/3102))
+  * Fixes [#3093](https://github.com/SaiVishwas/aws-sdk-go/issues/3093)
 
 Release v1.28.9 (2020-01-24)
 ===
@@ -429,7 +429,7 @@ Release v1.28.8 (2020-01-23)
   * This SDK release introduces APIs that automate the export of Amazon RDS snapshot data to Amazon S3. The new APIs include: StartExportTask, CancelExportTask, DescribeExportTasks. These APIs automate the extraction of data from an RDS snapshot and export it to an Amazon S3 bucket. The data is stored in a compressed, consistent, and query-able format. After the data is exported, you can query it directly using tools such as Amazon Athena or Redshift Spectrum. You can also consume the data as part of a data lake solution. If you archive the data in S3 Infrequent Access or Glacier, you can reduce long term data storage costs by applying data lifecycle policies.
 
 ### SDK Bugs
-* Fix generated errors for some JSON APIs not including a message ([#3089](https://github.com/aws/aws-sdk-go/issues/3089))
+* Fix generated errors for some JSON APIs not including a message ([#3089](https://github.com/SaiVishwas/aws-sdk-go/issues/3089))
   * Fixes the SDK's generated errors to all include the `Message` member regardless if it was modeled on the error shape. This fixes the bug identified in #3088 where some JSON errors were not modeled with the Message member.
 
 Release v1.28.7 (2020-01-21)
@@ -462,7 +462,7 @@ Release v1.28.6 (2020-01-20)
   * Updating DescribeAnomalyDetectors API to return AnomalyDetector Status value in response.
 
 ### SDK Bugs
-* `service/dynamodb/expression`: Allow AttributeValue as a value to BuildOperand. ([#3057](https://github.com/aws/aws-sdk-go/pull/3057))
+* `service/dynamodb/expression`: Allow AttributeValue as a value to BuildOperand. ([#3057](https://github.com/SaiVishwas/aws-sdk-go/pull/3057))
   * This change fixes the SDK's behavior with DynamoDB Expression builder to not double marshal AttributeValues when used as BuildOperands, `Value` type. The AttributeValue will be used in the expression as the specific value set in the AttributeValue, instead of encoded as another AttributeValue.
 
 Release v1.28.5 (2020-01-17)
@@ -506,7 +506,7 @@ Release v1.28.3 (2020-01-15)
   * Document updates for Patch Manager 'NoReboot' feature.
 
 ### SDK Enhancements
-* `service/s3/s3crypto`: Added X-Ray support to encrypt/decrypt clients ([#2912](https://github.com/aws/aws-sdk-go/pull/2912))
+* `service/s3/s3crypto`: Added X-Ray support to encrypt/decrypt clients ([#2912](https://github.com/SaiVishwas/aws-sdk-go/pull/2912))
   * Adds support for passing Context down to the crypto client's KMS client enabling tracing for tools like X-Ray, and metrics.
 
 Release v1.28.2 (2020-01-14)
@@ -546,12 +546,12 @@ Release v1.28.0 (2020-01-10)
 ### SDK Features
 * Add generated error types for JSONRPC and RESTJSON APIs
   * Adds generated error types for APIs using JSONRPC and RESTJSON protocols. This allows you to retrieve additional error metadata within an error message that was previously unavailable. For example, Amazon DynamoDB's TransactWriteItems operation can return a `TransactionCanceledException` continuing detailed `CancellationReasons` member. This data is now available by type asserting the error returned from the operation call to `TransactionCanceledException` type.
-* `service/dynamodb/dynamodbattribute`: Go 1.9+, Add caching of struct serialization ([#3070](https://github.com/aws/aws-sdk-go/pull/3070))
+* `service/dynamodb/dynamodbattribute`: Go 1.9+, Add caching of struct serialization ([#3070](https://github.com/SaiVishwas/aws-sdk-go/pull/3070))
   * For Go 1.9 and above, adds struct field caching to the SDK's DynamoDB AttributeValue marshalers and unmarshalers. This significantly reduces time, and overall allocations of the (un)marshalers by caching the reflected structure's fields. This should improve the performance of applications using DynamoDB AttributeValue (un)marshalers.
 
 ### SDK Bugs
-* `service/s3/s3manager`: Fix resource leak on failed CreateMultipartUpload calls ([#3069](https://github.com/aws/aws-sdk-go/pull/3069))
-  * Fixes [#3000](https://github.com/aws/aws-sdk-go/issues/3000), [#3035](https://github.com/aws/aws-sdk-go/issues/3035)
+* `service/s3/s3manager`: Fix resource leak on failed CreateMultipartUpload calls ([#3069](https://github.com/SaiVishwas/aws-sdk-go/pull/3069))
+  * Fixes [#3000](https://github.com/SaiVishwas/aws-sdk-go/issues/3000), [#3035](https://github.com/SaiVishwas/aws-sdk-go/issues/3035)
 
 Release v1.27.4 (2020-01-09)
 ===
@@ -581,13 +581,13 @@ Release v1.27.2 (2020-01-07)
   * Documentation updates for xray
 
 ### SDK Enhancements
-* `aws`: Add configuration option enable the SDK to unmarshal API response header maps to normalized lower case map keys. ([#3033](https://github.com/aws/aws-sdk-go/pull/3033))
+* `aws`: Add configuration option enable the SDK to unmarshal API response header maps to normalized lower case map keys. ([#3033](https://github.com/SaiVishwas/aws-sdk-go/pull/3033))
   * Setting `aws.Config.LowerCaseHeaderMaps` to `true` will result in S3's X-Amz-Meta prefixed header to be unmarshaled to lower case Metadata member's map keys.
 
 ### SDK Bugs
-* `aws/ec2metadata` : Reduces request timeout for EC2Metadata client along with maximum number of retries ([#3066](https://github.com/aws/aws-sdk-go/pull/3066))
+* `aws/ec2metadata` : Reduces request timeout for EC2Metadata client along with maximum number of retries ([#3066](https://github.com/SaiVishwas/aws-sdk-go/pull/3066))
   * Reduces latency while fetching response from EC2Metadata client running in a container to around 3 seconds
-  * Fixes [#2972](https://github.com/aws/aws-sdk-go/issues/2972)
+  * Fixes [#2972](https://github.com/SaiVishwas/aws-sdk-go/issues/2972)
 
 Release v1.27.1 (2020-01-06)
 ===
@@ -600,7 +600,7 @@ Release v1.27.1 (2020-01-06)
   * You can now restrict direct access to AWS Elemental MediaPackage by securing requests for live content using CDN authorization. With CDN authorization, content requests require a specific HTTP header and authorization code.
 
 ### SDK Bugs
-* `aws/session`: Fix client init not exposing endpoint resolve error ([#3059](https://github.com/aws/aws-sdk-go/pull/3059))
+* `aws/session`: Fix client init not exposing endpoint resolve error ([#3059](https://github.com/SaiVishwas/aws-sdk-go/pull/3059))
   * Fixes the SDK API clients not surfacing endpoint resolution errors, when the EndpointResolver is unable to resolve an endpoint for the client and region.
 
 Release v1.27.0 (2020-01-02)
@@ -615,10 +615,10 @@ Release v1.27.0 (2020-01-02)
   * This release adds support for Certificate Authority (CA) certificate identifier to managed databases in Amazon Lightsail.
 
 ### SDK Features
-* `services/transcribestreamingservice`: Support for Amazon Transcribe Streaming ([#3048](https://github.com/aws/aws-sdk-go/pull/3048))
+* `services/transcribestreamingservice`: Support for Amazon Transcribe Streaming ([#3048](https://github.com/SaiVishwas/aws-sdk-go/pull/3048))
   * The SDK now supports the Amazon Transcribe Streaming APIs by utilizing event stream encoding over HTTP/2
   * See [Amazon Transcribe Developer Guide](https://docs.aws.amazon.com/transcribe/latest/dg)
-  * Fixes [#2487](https://github.com/aws/aws-sdk-go/issues/2487)
+  * Fixes [#2487](https://github.com/SaiVishwas/aws-sdk-go/issues/2487)
 
 Release v1.26.8 (2019-12-23)
 ===
@@ -681,7 +681,7 @@ Release v1.26.5 (2019-12-18)
   * Updates Amazon S3 endpoints allowing you to configure your client to opt-in to using S3 with the us-east-1 regional endpoint, instead of global.
 
 ### SDK Bugs
-* `aws/request`: Fix shouldRetry behavior for nested errors ([#3017](https://github.com/aws/aws-sdk-go/pull/3017))
+* `aws/request`: Fix shouldRetry behavior for nested errors ([#3017](https://github.com/SaiVishwas/aws-sdk-go/pull/3017))
 
 Release v1.26.4 (2019-12-17)
 ===
@@ -725,8 +725,8 @@ Release v1.26.1 (2019-12-12)
 * `service/accessanalyzer`: Updates service API and documentation
 
 ### SDK Bugs
-* `service/s3/s3crypto`: Fixes a bug where `gcmEncryptReader` and `gcmDecryptReader` would return an invalid number of bytes as having been read. ([#3005](https://github.com/aws/aws-sdk-go/pull/3005))
-  * Fixes [#2999](https://github.com/aws/aws-sdk-go/issues/2999)
+* `service/s3/s3crypto`: Fixes a bug where `gcmEncryptReader` and `gcmDecryptReader` would return an invalid number of bytes as having been read. ([#3005](https://github.com/SaiVishwas/aws-sdk-go/pull/3005))
+  * Fixes [#2999](https://github.com/SaiVishwas/aws-sdk-go/issues/2999)
 
 Release v1.26.0 (2019-12-11)
 ===
@@ -737,12 +737,12 @@ Release v1.26.0 (2019-12-11)
 
 ### SDK Features
 
-* `aws/credentials/stscreds`: Add support for session tags to `AssumeRoleProvider` ([#2993](https://github.com/aws/aws-sdk-go/pull/2993))
+* `aws/credentials/stscreds`: Add support for session tags to `AssumeRoleProvider` ([#2993](https://github.com/SaiVishwas/aws-sdk-go/pull/2993))
   * Adds support for session tags to the AssumeRoleProvider. This feature is used to enable modeling Attribute Based Access Control (ABAC) on top of AWS IAM Policies, User and Roles.
   * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html
 
 ### SDK Enhancements
-* `aws/request`: Adds `ThrottledException` to the list of retryable request exceptions ([#3006](https://github.com/aws/aws-sdk-go/pull/3006))
+* `aws/request`: Adds `ThrottledException` to the list of retryable request exceptions ([#3006](https://github.com/SaiVishwas/aws-sdk-go/pull/3006))
 
 Release v1.25.50 (2019-12-10)
 ===
@@ -764,7 +764,7 @@ Release v1.25.49 (2019-12-09)
   * Adds the SSM GetCalendarState API and ChangeCalendar SSM Document type. These features enable the forthcoming Systems Manager Change Calendar feature, which will allow you to schedule events during which actions should (or should not) be performed.
 
 ### SDK Bugs
-* `service/s3`: Fix SDK support for Accesspoint ARNs with slash in resource ([#3001](https://github.com/aws/aws-sdk-go/pull/3001))
+* `service/s3`: Fix SDK support for Accesspoint ARNs with slash in resource ([#3001](https://github.com/SaiVishwas/aws-sdk-go/pull/3001))
   * Fixes the SDK's handling of S3 Accesspoint ARNs to correctly parse ARNs with slashes in the resource component as valid. Previously the SDK's ARN parsing incorrectly identify ARN resources with slash delimiters as invalid ARNs.
 
 Release v1.25.48 (2019-12-05)
@@ -910,8 +910,8 @@ Release v1.25.42 (2019-11-25)
   * AWS Systems Manager Documents now supports more Document Types: ApplicationConfiguration, ApplicationConfigurationSchema and DeploymentStrategy. This release also extends Document Permissions capabilities and introduces a new Force flag for DeleteDocument API.
 
 ### SDK Enhancements
-* `aws/credentials/processcreds`: Increase the default max buffer size ([#2957](https://github.com/aws/aws-sdk-go/pull/2957))
-  * Fixes [#2875](https://github.com/aws/aws-sdk-go/issues/2875)
+* `aws/credentials/processcreds`: Increase the default max buffer size ([#2957](https://github.com/SaiVishwas/aws-sdk-go/pull/2957))
+  * Fixes [#2875](https://github.com/SaiVishwas/aws-sdk-go/issues/2875)
 
 Release v1.25.41 (2019-11-22)
 ===
@@ -939,7 +939,7 @@ Release v1.25.41 (2019-11-22)
   * Support tagging for STS sessions and tag based access control for the STS APIs
 
 ### SDK Bugs
-* `aws/ec2metadata`: Fix failing concurrency test for ec2metadata client ([#2960](https://github.com/aws/aws-sdk-go/pull/2960))
+* `aws/ec2metadata`: Fix failing concurrency test for ec2metadata client ([#2960](https://github.com/SaiVishwas/aws-sdk-go/pull/2960))
   * Fixes a resource leak  in ec2metadata client, where response body was not closed after reading
 
 Release v1.25.40 (2019-11-21)
@@ -1020,7 +1020,7 @@ Release v1.25.38 (2019-11-19)
   * This release provides three new runtimes to support Node.js 12 (initially 12.13.0), Python 3.8 and Java 11.
 
 ### SDK Enhancements
-* `aws/ec2metadata`: Adds support for EC2Metadata client to use secure tokens provided by the IMDS ([#2958](https://github.com/aws/aws-sdk-go/pull/2958))
+* `aws/ec2metadata`: Adds support for EC2Metadata client to use secure tokens provided by the IMDS ([#2958](https://github.com/SaiVishwas/aws-sdk-go/pull/2958))
   * Modifies and adds tests to verify the behavior of the EC2Metadata client.
 
 Release v1.25.37 (2019-11-18)
@@ -1098,7 +1098,7 @@ Release v1.25.34 (2019-11-13)
 * `service/sesv2`: Adds new service
 
 ### SDK Enhancements
-* Replaced case-insensitive string comparisons with `strings.EqualFold(...)` ([#2922](https://github.com/aws/aws-sdk-go/pull/2922))
+* Replaced case-insensitive string comparisons with `strings.EqualFold(...)` ([#2922](https://github.com/SaiVishwas/aws-sdk-go/pull/2922))
 
 Release v1.25.33 (2019-11-12)
 ===
@@ -1129,9 +1129,9 @@ Release v1.25.31 (2019-11-08)
   * This release contains ticket fixes for Amazon ECR.
 
 ### SDK Bugs
-* `aws/request`: Ensure New request handles nil retryer ([#2934](https://github.com/aws/aws-sdk-go/pull/2934))
+* `aws/request`: Ensure New request handles nil retryer ([#2934](https://github.com/SaiVishwas/aws-sdk-go/pull/2934))
   * Adds additional default behavior to the SDK's New request constructor, to handle the case where a nil Retryer was passed in. This error could occur when the SDK's Request type was being used to create requests directly, not through one of the SDK's client.
-  * Fixes [#2889](https://github.com/aws/aws-sdk-go/issues/2889)
+  * Fixes [#2889](https://github.com/SaiVishwas/aws-sdk-go/issues/2889)
 
 Release v1.25.30 (2019-11-07)
 ===
@@ -1239,14 +1239,14 @@ Release v1.25.20 (2019-10-28)
   * This release adds logical directories support to your AWS SFTP server endpoint, so you can now create logical directory structures mapped to Amazon Simple Storage Service (Amazon S3) bucket paths for users created and stored within the service. Amazon S3 bucket names and paths can now be hidden from AWS SFTP users, providing an additional level of privacy to meet security requirements. You can lock down your SFTP users' access to designated folders (commonly referred to as 'chroot'), and simplify complex folder structures for data distribution through SFTP without replicating files across multiple users.
 
 ### SDK Enhancements
-* `aws/client`: Add PartitionID to Config ([#2902](https://github.com/aws/aws-sdk-go/pull/2902))
-* `aws/client/metadata`: Add PartitionID to ClientInfo ([#2902](https://github.com/aws/aws-sdk-go/pull/2902))
-* `aws/endpoints`: Add PartitionID to ResolvedEndpoint ([#2902](https://github.com/aws/aws-sdk-go/pull/2902))
+* `aws/client`: Add PartitionID to Config ([#2902](https://github.com/SaiVishwas/aws-sdk-go/pull/2902))
+* `aws/client/metadata`: Add PartitionID to ClientInfo ([#2902](https://github.com/SaiVishwas/aws-sdk-go/pull/2902))
+* `aws/endpoints`: Add PartitionID to ResolvedEndpoint ([#2902](https://github.com/SaiVishwas/aws-sdk-go/pull/2902))
 
 ### SDK Bugs
-* `aws/endpoints`: Fix resolve endpoint with empty region ([#2911](https://github.com/aws/aws-sdk-go/pull/2911))
+* `aws/endpoints`: Fix resolve endpoint with empty region ([#2911](https://github.com/SaiVishwas/aws-sdk-go/pull/2911))
   * Fixes the SDK's behavior when attempting to resolve a service's endpoint when no region was provided. Adds legacy support for services that were able to resolve a valid endpoint. No new service will support resolving an endpoint without an region.
-  * Fixes [#2909](https://github.com/aws/aws-sdk-go/issues/2909)
+  * Fixes [#2909](https://github.com/SaiVishwas/aws-sdk-go/issues/2909)
 
 Release v1.25.19 (2019-10-24)
 ===
@@ -1273,7 +1273,7 @@ Release v1.25.18 (2019-10-23)
   * AWS Security Token Service (STS) now supports a regional configuration flag to make the client respect the region without the need for the endpoint parameter.
 
 ### SDK Enhancements
-* `aws/endpoints`: Adds support for STS Regional Flags ([#2779](https://github.com/aws/aws-sdk-go/pull/2779))
+* `aws/endpoints`: Adds support for STS Regional Flags ([#2779](https://github.com/SaiVishwas/aws-sdk-go/pull/2779))
   * Implements STS regional flag, with support for `legacy` and `regional` options. Defaults to `legacy`. Legacy, will force all regions specified in aws/endpoints/sts_legacy_regions.go to resolve to the STS global endpoint, sts.amazonaws.com. This is the SDK's current behavior.
   * When the flag's value is `regional` the SDK will resolve the endpoint based on the endpoints.json model. This allows STS to update their service's modeled endpoints to be regionalized for all regions. When `regional` turned on use `aws-global` as the region to use the global endpoint.
   * `AWS_STS_REGIONAL_ENDPOINTS=regional` for environment, or `sts_regional_endpoints=regional` in shared config file.
@@ -1304,9 +1304,9 @@ Release v1.25.17 (2019-10-22)
   * AWS OpsWorks for Chef Automate (OWCA) now allows customers to use a custom domain and respective certificate, for their AWS OpsWorks For Chef Automate servers. Customers can now provide a CustomDomain, CustomCertificate and CustomPrivateKey in CreateServer API to configure their Chef Automate servers with a custom domain and certificate.
 
 ### SDK Bugs
-* `service/s3`,`service/kinesis`: Fix streaming APIs' Err method closing stream ([#2882](https://github.com/aws/aws-sdk-go/pull/2882))
+* `service/s3`,`service/kinesis`: Fix streaming APIs' Err method closing stream ([#2882](https://github.com/SaiVishwas/aws-sdk-go/pull/2882))
   * Fixes calling the Err method on SDK's Amazon Kinesis's SubscribeToShared and Amazon S3's SelectObjectContent response EventStream members closing the stream. This would cause unexpected read errors, or early termination of the streams. Only the Close method of the streaming members will close the streams.
-  * Related to [#2769](https://github.com/aws/aws-sdk-go/issues/2769)
+  * Related to [#2769](https://github.com/SaiVishwas/aws-sdk-go/issues/2769)
 
 Release v1.25.16 (2019-10-18)
 ===
@@ -1427,7 +1427,7 @@ Release v1.25.5 (2019-10-03)
   * Amazon Elasticsearch Service now supports configuring additional options for domain endpoint, such as whether to require HTTPS for all traffic.
 
 ### SDK Bugs
-* `service/dynamodb/dynamodbattribute`: Fixes a panic when decoding into a map with a key string type alias. ([#2870](https://github.com/aws/aws-sdk-go/pull/2870))
+* `service/dynamodb/dynamodbattribute`: Fixes a panic when decoding into a map with a key string type alias. ([#2870](https://github.com/SaiVishwas/aws-sdk-go/pull/2870))
 
 Release v1.25.4 (2019-10-02)
 ===
@@ -1437,14 +1437,14 @@ Release v1.25.4 (2019-10-02)
   * This release adds support for the automatic snapshots add-on for instances and block storage disks.
 
 ### SDK Enhancements
-* `service/s3/s3manager`: Allow reuse of Uploader buffer `sync.Pool` amongst multiple Upload calls ([#2863](https://github.com/aws/aws-sdk-go/pull/2863)) 
+* `service/s3/s3manager`: Allow reuse of Uploader buffer `sync.Pool` amongst multiple Upload calls ([#2863](https://github.com/SaiVishwas/aws-sdk-go/pull/2863)) 
   * The `sync.Pool` used for the reuse of `[]byte` slices when handling streaming payloads will now be shared across multiple Upload calls when the upload part size remains constant. 
 
 ### SDK Bugs
-* `internal/ini`: Fix ini parser to handle empty values [#2860](https://github.com/aws/aws-sdk-go/pull/2860)
+* `internal/ini`: Fix ini parser to handle empty values [#2860](https://github.com/SaiVishwas/aws-sdk-go/pull/2860)
   * Fixes incorrect modifications to the previous token value of the skipper. Adds checks for cases where a skipped statement should be marked as complete and not be ignored.
-  * Adds tests for nested and empty field value parsing, along with tests suggested in [#2801](https://github.com/aws/aws-sdk-go/pull/2801)
-  * Fixes [#2800](https://github.com/aws/aws-sdk-go/issues/2800)
+  * Adds tests for nested and empty field value parsing, along with tests suggested in [#2801](https://github.com/SaiVishwas/aws-sdk-go/pull/2801)
+  * Fixes [#2800](https://github.com/SaiVishwas/aws-sdk-go/issues/2800)
 
 Release v1.25.3 (2019-10-01)
 ===
@@ -1454,7 +1454,7 @@ Release v1.25.3 (2019-10-01)
   * This release provides support for describe and modify CA certificates.
 
 ### SDK Bugs
-* `private/model/api` : Fixes broken test for code generation example ([#2855](https://github.com/aws/aws-sdk-go/pull/2855))
+* `private/model/api` : Fixes broken test for code generation example ([#2855](https://github.com/SaiVishwas/aws-sdk-go/pull/2855))
 
 Release v1.25.2 (2019-09-30)
 ===
@@ -1477,12 +1477,12 @@ Release v1.25.1 (2019-09-27)
   * This release of Amazon Elastic Container Service (Amazon ECS) removes FirelensConfiguration from the DescribeTask output during the FireLens public preview.
 
 ### SDK Enhancements
-* `private/protocol/xml/xmlutil`: Support for sorting xml attributes ([#2854](https://github.com/aws/aws-sdk-go/pull/2854))
+* `private/protocol/xml/xmlutil`: Support for sorting xml attributes ([#2854](https://github.com/SaiVishwas/aws-sdk-go/pull/2854))
 
 ### SDK Bugs
-* `private/model/api`: Write locationName for top-level shapes for rest-xml and ec2 protocols ([#2854](https://github.com/aws/aws-sdk-go/pull/2854))
-* `private/mode/api`: Colliding fields should serialize with original name ([#2854](https://github.com/aws/aws-sdk-go/pull/2854))
-  * Fixes [#2806](https://github.com/aws/aws-sdk-go/issues/2806) 
+* `private/model/api`: Write locationName for top-level shapes for rest-xml and ec2 protocols ([#2854](https://github.com/SaiVishwas/aws-sdk-go/pull/2854))
+* `private/mode/api`: Colliding fields should serialize with original name ([#2854](https://github.com/SaiVishwas/aws-sdk-go/pull/2854))
+  * Fixes [#2806](https://github.com/SaiVishwas/aws-sdk-go/issues/2806) 
 Release v1.25.0 (2019-09-26)
 ===
 
@@ -1494,18 +1494,18 @@ Release v1.25.0 (2019-09-26)
   * This release updates the AWS Systems Manager Parameter Store PutParameter and LabelParameterVersion APIs to return the "Tier" of parameter created/updated and the "parameter version" labeled respectively.
 
 ### SDK Features
-* `service/dynamodb/dynamodbattribute`: Add EnableEmptyCollections flag to Encoder and Decoder ([#2834](https://github.com/aws/aws-sdk-go/pull/2834))
+* `service/dynamodb/dynamodbattribute`: Add EnableEmptyCollections flag to Encoder and Decoder ([#2834](https://github.com/SaiVishwas/aws-sdk-go/pull/2834))
   * The `Encoder` and `Decoder` types have been enhanced to allow support for specifying the SDK's behavior when marshaling structures, maps, and slices to DynamoDB.
   * When `EnableEmptyCollections` is set to `True` the SDK will preserve the empty of these types in DynamoDB rather then encoding a NULL AttributeValue.
-  * Fixes [#682](https://github.com/aws/aws-sdk-go/issues/682)
-  * Fixes [#1890](https://github.com/aws/aws-sdk-go/issues/1890)
-  * Fixes [#2746](https://github.com/aws/aws-sdk-go/issues/2746)
-* `service/s3/s3manager`: Add Download Buffer Provider ([#2823](https://github.com/aws/aws-sdk-go/pull/2823))
+  * Fixes [#682](https://github.com/SaiVishwas/aws-sdk-go/issues/682)
+  * Fixes [#1890](https://github.com/SaiVishwas/aws-sdk-go/issues/1890)
+  * Fixes [#2746](https://github.com/SaiVishwas/aws-sdk-go/issues/2746)
+* `service/s3/s3manager`: Add Download Buffer Provider ([#2823](https://github.com/SaiVishwas/aws-sdk-go/pull/2823))
   * Adds a new `BufferProvider` member for specifying how part data can be buffered in memory when copying from the http response body.
   * Windows platforms will now default to buffering 1MB per part to reduce contention when downloading files.
   * Non-Windows platforms will continue to employ a non-buffering behavior.
-  * Fixes [#2180](https://github.com/aws/aws-sdk-go/issues/2180)
-  * Fixes [#2662](https://github.com/aws/aws-sdk-go/issues/2662)
+  * Fixes [#2180](https://github.com/SaiVishwas/aws-sdk-go/issues/2180)
+  * Fixes [#2662](https://github.com/SaiVishwas/aws-sdk-go/issues/2662)
 
 Release v1.24.6 (2019-09-25)
 ===
@@ -1526,7 +1526,7 @@ Release v1.24.5 (2019-09-24)
 * `service/transcribe`: Updates service API and documentation
 
 ### SDK Enhancements
-* `private/model/api`: Skip unsupported API models during code generation ([#2849](https://github.com/aws/aws-sdk-go/pull/2849))
+* `private/model/api`: Skip unsupported API models during code generation ([#2849](https://github.com/SaiVishwas/aws-sdk-go/pull/2849))
   * Adds support for removing API modeled operations that use unsupported features. If a API model results in having no operations it will be skipped.
 
 Release v1.24.4 (2019-09-23)
@@ -1585,13 +1585,13 @@ Release v1.24.0 (2019-09-17)
 * `service/personalize`: Updates service API and documentation
 
 ### SDK Features
-* `service/s3/s3manager`: Add Upload Buffer Provider ([#2792](https://github.com/aws/aws-sdk-go/pull/2792))
+* `service/s3/s3manager`: Add Upload Buffer Provider ([#2792](https://github.com/SaiVishwas/aws-sdk-go/pull/2792))
   * Adds a new `BufferProvider` member for specifying how part data can be buffered in memory.
   * Windows platforms will now default to buffering 1MB per part to reduce contention when uploading files.
   * Non-Windows platforms will continue to employ a non-buffering behavior.
 
 ### SDK Enhancements
-* `awstesting/integration/performance/s3UploadManager`: Extended to support benchmarking and usage of new `BufferProvider` ([#2792](https://github.com/aws/aws-sdk-go/pull/2792))
+* `awstesting/integration/performance/s3UploadManager`: Extended to support benchmarking and usage of new `BufferProvider` ([#2792](https://github.com/SaiVishwas/aws-sdk-go/pull/2792))
 
 Release v1.23.22 (2019-09-16)
 ===
@@ -1603,10 +1603,10 @@ Release v1.23.22 (2019-09-16)
   * AWS Elemental MediaConvert SDK has added support for multi-DRM SPEKE with CMAF outputs, MP3 ingest, and options for improved video quality.
 
 ### SDK Enhancements
-* `aws/client`: Adds configurations to the default retryer ([#2830](https://github.com/aws/aws-sdk-go/pull/2830))
+* `aws/client`: Adds configurations to the default retryer ([#2830](https://github.com/SaiVishwas/aws-sdk-go/pull/2830))
   * Exposes members of the default retryer. Adds NoOpRetryer to support no retry behavior. 
   * Updates the underlying logic used by the default retryer to calculate jittered delay for retry. 
-  * Fixes [#2829](https://github.com/aws/aws-sdk-go/issues/2829)
+  * Fixes [#2829](https://github.com/SaiVishwas/aws-sdk-go/issues/2829)
 
 Release v1.23.21 (2019-09-12)
 ===
@@ -1621,7 +1621,7 @@ Release v1.23.21 (2019-09-12)
 * `service/workmailmessageflow`: Adds new service
 
 ### SDK Enhancements
-* `aws`: Add value/pointer conversion functions for all basic number types ([#2740](https://github.com/aws/aws-sdk-go/pull/2740))
+* `aws`: Add value/pointer conversion functions for all basic number types ([#2740](https://github.com/SaiVishwas/aws-sdk-go/pull/2740))
   * Adds value and pointer conversion utilities for the remaining set of integer and float number types.
 
 Release v1.23.20 (2019-09-11)
@@ -1640,7 +1640,7 @@ Release v1.23.20 (2019-09-11)
   * Fixing letter case in Map history event details to be small case
 
 ### SDK Enhancements
-* Enabled verbose logging for continuous integration tests ([#2815](https://github.com/aws/aws-sdk-go/pull/2815))
+* Enabled verbose logging for continuous integration tests ([#2815](https://github.com/SaiVishwas/aws-sdk-go/pull/2815))
 
 Release v1.23.19 (2019-09-10)
 ===
@@ -1666,7 +1666,7 @@ Release v1.23.18 (2019-09-09)
 * `service/robomaker`: Updates service API and documentation
 
 ### SDK Bugs
-* Fixed failing tests when executed as a module dependency ([#2817](https://github.com/aws/aws-sdk-go/pull/2817))
+* Fixed failing tests when executed as a module dependency ([#2817](https://github.com/SaiVishwas/aws-sdk-go/pull/2817))
 Release v1.23.17 (2019-09-06)
 ===
 
@@ -1676,7 +1676,7 @@ Release v1.23.17 (2019-09-06)
   * Documentation updates for kinesisanalytics
 
 ### SDK Bugs
-* `awstesting`: Fixes AssertXML to correctly assert on differences ([#2804](https://github.com/aws/aws-sdk-go/pull/2804))
+* `awstesting`: Fixes AssertXML to correctly assert on differences ([#2804](https://github.com/SaiVishwas/aws-sdk-go/pull/2804))
 Release v1.23.16 (2019-09-05)
 ===
 
@@ -1716,11 +1716,11 @@ Release v1.23.13 (2019-08-30)
   * Adds support for updating security groups selection of an Amazon MQ broker.
 
 ### SDK Bugs
-* `aws/csm`: Fix metricChan's unsafe atomic operations ([#2785](https://github.com/aws/aws-sdk-go/pull/2785))
-  * Fixes [#2784](https://github.com/aws/aws-sdk-go/issues/2784) test failure caused by the metricChan.paused member being a value instead of a pointer. If the metricChan value was ever copied the atomic operations performed on paused would be invalid.
-* `aws/client`: Updates logic for request retry delay calculation ([#2796](https://github.com/aws/aws-sdk-go/pull/2796))
+* `aws/csm`: Fix metricChan's unsafe atomic operations ([#2785](https://github.com/SaiVishwas/aws-sdk-go/pull/2785))
+  * Fixes [#2784](https://github.com/SaiVishwas/aws-sdk-go/issues/2784) test failure caused by the metricChan.paused member being a value instead of a pointer. If the metricChan value was ever copied the atomic operations performed on paused would be invalid.
+* `aws/client`: Updates logic for request retry delay calculation ([#2796](https://github.com/SaiVishwas/aws-sdk-go/pull/2796))
   * Updates logic for calculating the delay after which a request can be retried. Retry delay now includes the Retry-After duration specified in a request. Fixes broken test for retry delays for throttled exceptions.
-  * Fixes [#2795](https://github.com/aws/aws-sdk-go/issues/2795)
+  * Fixes [#2795](https://github.com/SaiVishwas/aws-sdk-go/issues/2795)
 Release v1.23.12 (2019-08-29)
 ===
 
@@ -1738,10 +1738,10 @@ Release v1.23.12 (2019-08-29)
 ### SDK Enhancements
 * `aws/ec2metadata`: Add marketplaceProductCodes to EC2 Instance Identity Document
   * Adds `MarketplaceProductCodes` to the EC2 Instance Metadata's Identity Document. The ec2metadata client will now retrieve these values if they are available.
-  * Fixes [#2781](https://github.com/aws/aws-sdk-go/issues/2781)
-* `private/protocol`: Add support for parsing fractional time ([#2760](https://github.com/aws/aws-sdk-go/pull/2760))
+  * Fixes [#2781](https://github.com/SaiVishwas/aws-sdk-go/issues/2781)
+* `private/protocol`: Add support for parsing fractional time ([#2760](https://github.com/SaiVishwas/aws-sdk-go/pull/2760))
   * Fixes the SDK's ability to parse fractional unix timestamp values and added tests.
-  * Fixes [#1448](https://github.com/aws/aws-sdk-go/pull/1448)
+  * Fixes [#1448](https://github.com/SaiVishwas/aws-sdk-go/pull/1448)
 
 Release v1.23.11 (2019-08-28)
 ===
@@ -1762,8 +1762,8 @@ Release v1.23.10 (2019-08-27)
   * Documentation updates for organizations
 
 ### SDK Bugs
-* `service/ec2`: Fix int overflow in minTime on 386 and arm ([#2787](https://github.com/aws/aws-sdk-go/pull/2787))
-  * Fixes [2786](https://github.com/aws/aws-sdk-go/issues/2786) int overflow issue on 32-bit platforms like 386 and arm.
+* `service/ec2`: Fix int overflow in minTime on 386 and arm ([#2787](https://github.com/SaiVishwas/aws-sdk-go/pull/2787))
+  * Fixes [2786](https://github.com/SaiVishwas/aws-sdk-go/issues/2786) int overflow issue on 32-bit platforms like 386 and arm.
 Release v1.23.9 (2019-08-26)
 ===
 
@@ -1783,16 +1783,16 @@ Release v1.23.8 (2019-08-23)
 * `service/transcribe`: Updates service API and documentation
 
 ### SDK Enhancements
-* `aws/session`: Add support for CSM options from shared config file ([#2768](https://github.com/aws/aws-sdk-go/pull/2768))
+* `aws/session`: Add support for CSM options from shared config file ([#2768](https://github.com/SaiVishwas/aws-sdk-go/pull/2768))
   * Adds support for enabling and controlling the Client Side Metrics (CSM) reporting from the shared configuration files in addition to the environment variables.
 
 ### SDK Bugs
-* `service/s3/s3crypto`: Fix tmp file not being deleted after upload ([#2776](https://github.com/aws/aws-sdk-go/pull/2776))
+* `service/s3/s3crypto`: Fix tmp file not being deleted after upload ([#2776](https://github.com/SaiVishwas/aws-sdk-go/pull/2776))
   * Fixes the s3crypto's getWriterStore utiliy's send handler not cleaning up the temporary file after Send completes.
-* `private/protocol`: Add protocol tests for blob types and headers ([#2770](https://github.com/aws/aws-sdk-go/pull/2770))
+* `private/protocol`: Add protocol tests for blob types and headers ([#2770](https://github.com/SaiVishwas/aws-sdk-go/pull/2770))
   * Adds RESTJSON and RESTXML protocol tests for blob headers.
-  * Related to [#750](https://github.com/aws/aws-sdk-go/issues/750)
-* `service/dynamodb/expression`: Improved reporting of bad key conditions ([#2775](https://github.com/aws/aws-sdk-go/pull/2775))
+  * Related to [#750](https://github.com/SaiVishwas/aws-sdk-go/issues/750)
+* `service/dynamodb/expression`: Improved reporting of bad key conditions ([#2775](https://github.com/SaiVishwas/aws-sdk-go/pull/2775))
   * Improved error reporting when invalid key conditions are constructed using KeyConditionBuilder
 Release v1.23.7 (2019-08-22)
 ===
@@ -1804,8 +1804,8 @@ Release v1.23.7 (2019-08-22)
   * This release allows users to enable RDS Data API while creating Aurora Serverless databases.
 
 ### SDK Bugs
-* `aws/request`: Fix IsErrorRetryable returning true for nil error ([#2774](https://github.com/aws/aws-sdk-go/pull/2774))
-  * Fixes [#2773](https://github.com/aws/aws-sdk-go/pull/2773) where the IsErrorRetryable helper was incorrectly returning true for nil errors passed in. IsErrorRetryable will now correctly return false when the passed in error is nil like documented.
+* `aws/request`: Fix IsErrorRetryable returning true for nil error ([#2774](https://github.com/SaiVishwas/aws-sdk-go/pull/2774))
+  * Fixes [#2773](https://github.com/SaiVishwas/aws-sdk-go/pull/2773) where the IsErrorRetryable helper was incorrectly returning true for nil errors passed in. IsErrorRetryable will now correctly return false when the passed in error is nil like documented.
 
 Release v1.23.6 (2019-08-21)
 ===
@@ -1824,9 +1824,9 @@ Release v1.23.6 (2019-08-21)
   * This release provides a way to add metadata tags to a queue when it is created. You can use tags to organize and identify your Amazon SQS queues for cost allocation.
 
 ### SDK Enhancements
-* `aws/session`: Ignore invalid shared config file when not used ([#2731](https://github.com/aws/aws-sdk-go/pull/2731))
+* `aws/session`: Ignore invalid shared config file when not used ([#2731](https://github.com/SaiVishwas/aws-sdk-go/pull/2731))
   * Updates the Session to not fail to load when credentials are provided via the environment variable, the AWS_PROFILE/Option.Profile have not been specified, and the shared config has not been enabled.
-  * Fixes [#2455](https://github.com/aws/aws-sdk-go/issues/2455)
+  * Fixes [#2455](https://github.com/SaiVishwas/aws-sdk-go/issues/2455)
 
 Release v1.23.5 (2019-08-20)
 ===
@@ -1876,10 +1876,10 @@ Release v1.23.2 (2019-08-15)
   * CreateSnapshotFromVolumeRecoveryPoint API supports new parameter: Tags (to be attached to the created resource)
 
 ### SDK Enhancements
-* `service/kinesis`: Add support for retrying service specific API errors ([#2751](https://github.com/aws/aws-sdk-go/pull/2751)
+* `service/kinesis`: Add support for retrying service specific API errors ([#2751](https://github.com/SaiVishwas/aws-sdk-go/pull/2751)
   * Adds support for retrying the Kinesis API error, LimitExceededException.
-  * Fixes [#1376](https://github.com/aws/aws-sdk-go/issues/1376)
-* `aws/credentials/stscreds`: Add STS and Assume Role specific retries ([#2752](https://github.com/aws/aws-sdk-go/pull/2752))
+  * Fixes [#1376](https://github.com/SaiVishwas/aws-sdk-go/issues/1376)
+* `aws/credentials/stscreds`: Add STS and Assume Role specific retries ([#2752](https://github.com/SaiVishwas/aws-sdk-go/pull/2752))
   * Adds retries to specific STS API errors to the STS AssumeRoleWithWebIdentity credential provider, and STS API operations in general.
 
 Release v1.23.1 (2019-08-14)
@@ -1903,10 +1903,10 @@ Release v1.23.0 (2019-08-13)
   * `AWS IoT Events`'s `IotEventsAction` with `Action`. The previously deleted `Action` is available as `ActionData`.
 
 ### SDK Bugs
-* `private/model/api`: Fix broken shape stutter rename during generation ([#2747](https://github.com/aws/aws-sdk-go/pull/2747))
+* `private/model/api`: Fix broken shape stutter rename during generation ([#2747](https://github.com/SaiVishwas/aws-sdk-go/pull/2747))
   * Fixes the SDK's code generation incorrectly renaming types and operations. The code generation would incorrectly rename an API type by removing the service's name from the type's name. This was done without checking for if a type with the new name already existed. Causing the SDK to replace the existing type with the renamed one.
-  * Fixes [#2741](https://github.com/aws/aws-sdk-go/issues/2741)
-* `private/model/api`: Fix API doc being generated with wrong value ([#2748](https://github.com/aws/aws-sdk-go/pull/2748))
+  * Fixes [#2741](https://github.com/SaiVishwas/aws-sdk-go/issues/2741)
+* `private/model/api`: Fix API doc being generated with wrong value ([#2748](https://github.com/SaiVishwas/aws-sdk-go/pull/2748))
   * Fixes the SDK's generated API documentation for structure member being generated with the wrong documentation value when the member was included multiple times in the model doc-2.json file, but under different types.
 Release v1.22.4 (2019-08-12)
 ===
@@ -1968,9 +1968,9 @@ Release v1.22.0 (2019-08-06)
   * Environment credentials have precedence over shared config credentials even if the AWS_PROFILE environment credentials are present. The session.Options.Profile value needs to be used to specify a profile for shared config to have precedence over environment credentials. #2694 incorrectly gave AWS_PROFILE for shared config precedence over environment credentials as well.
 
 ### SDK Bugs
-* `aws/session`: Fix credential loading order for env and shared config ([#2729](https://github.com/aws/aws-sdk-go/pull/2729))
+* `aws/session`: Fix credential loading order for env and shared config ([#2729](https://github.com/SaiVishwas/aws-sdk-go/pull/2729))
   * Fixes the credential loading order for environment credentials, when the presence of an AWS_PROFILE value is also provided. The environment credentials have precedence over the AWS_PROFILE.
-  * Fixes [#2727](https://github.com/aws/aws-sdk-go/issues/2727)
+  * Fixes [#2727](https://github.com/SaiVishwas/aws-sdk-go/issues/2727)
 Release v1.21.10 (2019-08-05)
 ===
 
@@ -1990,9 +1990,9 @@ Release v1.21.9 (2019-08-02)
   * Documentation updates for sts
 
 ### SDK Enhancements
-* `aws/endpoints`: Expose DNSSuffix for partitions ([#2711](https://github.com/aws/aws-sdk-go/pull/2711))
+* `aws/endpoints`: Expose DNSSuffix for partitions ([#2711](https://github.com/SaiVishwas/aws-sdk-go/pull/2711))
   * Exposes the underlying partition metadata's DNSSuffix value via the `DNSSuffix` method on the endpoint's `Partition` type. This allows access to the partition's DNS suffix, e.g. "amazon.com".
-  * Fixes [#2710](https://github.com/aws/aws-sdk-go/issues/2710)
+  * Fixes [#2710](https://github.com/SaiVishwas/aws-sdk-go/issues/2710)
 
 Release v1.21.8 (2019-07-30)
 ===
@@ -2078,13 +2078,13 @@ Release v1.21.2 (2019-07-22)
 
 ### SDK Enhancements
 * Fixup SDK source formating, test error checking, and simplify type conervsions
-  * [#2703](https://github.com/aws/aws-sdk-go/pull/2703), [#2704](https://github.com/aws/aws-sdk-go/pull/2704), [#2705](https://github.com/aws/aws-sdk-go/pull/2705), [#2706](https://github.com/aws/aws-sdk-go/pull/2706), [#2707](https://github.com/aws/aws-sdk-go/pull/2707), [#2708](https://github.com/aws/aws-sdk-go/pull/2708)
+  * [#2703](https://github.com/SaiVishwas/aws-sdk-go/pull/2703), [#2704](https://github.com/SaiVishwas/aws-sdk-go/pull/2704), [#2705](https://github.com/SaiVishwas/aws-sdk-go/pull/2705), [#2706](https://github.com/SaiVishwas/aws-sdk-go/pull/2706), [#2707](https://github.com/SaiVishwas/aws-sdk-go/pull/2707), [#2708](https://github.com/SaiVishwas/aws-sdk-go/pull/2708)
 
 ### SDK Bugs
-* `aws/request`: Fix SDK error checking when seeking readers ([#2696](https://github.com/aws/aws-sdk-go/pull/2696))
+* `aws/request`: Fix SDK error checking when seeking readers ([#2696](https://github.com/SaiVishwas/aws-sdk-go/pull/2696))
   * Fixes the SDK handling of seeking a reader to ensure errors are not lost, and are bubbled up.
   * In several places the SDK ignored Seek errors when attempting to determine a reader's length, or rewinding the reader for retry attempts.
-  * Related to [#2525](https://github.com/aws/aws-sdk-go/issues/2525)
+  * Related to [#2525](https://github.com/SaiVishwas/aws-sdk-go/issues/2525)
 Release v1.21.1 (2019-07-19)
 ===
 
@@ -2107,7 +2107,7 @@ Release v1.21.0 (2019-07-18)
   * Updates for Elasticache
 
 ### SDK Features
-* `aws/session`: Add support for assuming role via Web Identity Token ([#2667](https://github.com/aws/aws-sdk-go/pull/2667))
+* `aws/session`: Add support for assuming role via Web Identity Token ([#2667](https://github.com/SaiVishwas/aws-sdk-go/pull/2667))
   * Adds support for assuming an role via the Web Identity Token. Allows for OIDC token files to be used by specifying the token path through the AWS_WEB_IDENTITY_TOKEN_FILE, and AWS_ROLE_ARN environment variables.
 
 ### SDK Bugs
@@ -2145,9 +2145,9 @@ Release v1.20.19 (2019-07-11)
   * Adds APIs for partner event sources, partner event buses, and custom event buses. These new features are managed in the EventBridge service.
 
 ### SDK Enhancements
-* `aws/session`: Add Assume role for credential process from aws shared config ([#2674](https://github.com/aws/aws-sdk-go/pull/2674))
+* `aws/session`: Add Assume role for credential process from aws shared config ([#2674](https://github.com/SaiVishwas/aws-sdk-go/pull/2674))
   * Adds support for assuming role using credential process from the shared config file. Also updated SDK's environment testing and added SDK's CI testing with Windows.
-* `aws/csm`: Add support for AWS_CSM_HOST env option ([#2677](https://github.com/aws/aws-sdk-go/pull/2677))
+* `aws/csm`: Add support for AWS_CSM_HOST env option ([#2677](https://github.com/SaiVishwas/aws-sdk-go/pull/2677))
   * Adds support for a host to be configured for the SDK's metric reporting Client Side Metrics (CSM) client via the AWS_CSM_HOST environment variable.
 
 Release v1.20.18 (2019-07-10)
@@ -2377,14 +2377,14 @@ Release v1.20.0 (2019-06-13)
 
 ### SDK Features
 
-* `aws/session`: Add support for chaining assume IAM role from shared config ([#2579](https://github.com/aws/aws-sdk-go/pull/2579))
+* `aws/session`: Add support for chaining assume IAM role from shared config ([#2579](https://github.com/SaiVishwas/aws-sdk-go/pull/2579))
   * Adds support chaining assume role credentials from the shared config/credentials files. This change allows you to create an assume role chain of multiple levels of assumed IAM roles. The config profile the deepest in the chain must use static credentials, or `credential_source`. If the deepest profile doesn't have either of these the session will fail to load.
   * Fixes the SDK's shared config credential source not assuming a role with environment and ECS credentials. EC2 credentials were already supported.
-  * Fix [#2528](https://github.com/aws/aws-sdk-go/issue/2528)
-  * Fix [#2385](https://github.com/aws/aws-sdk-go/issue/2385)
+  * Fix [#2528](https://github.com/SaiVishwas/aws-sdk-go/issue/2528)
+  * Fix [#2385](https://github.com/SaiVishwas/aws-sdk-go/issue/2385)
 
 ### SDK Enhancements
-* `service/s3/s3manager/s3manageriface`: Add missing methods ([#2612](https://github.com/aws/aws-sdk-go/pull/2612))
+* `service/s3/s3manager/s3manageriface`: Add missing methods ([#2612](https://github.com/SaiVishwas/aws-sdk-go/pull/2612))
   * Adds the missing interface and methods from the `s3manager` Uploader, Downloader, and Batch Delete utilities.
 
 Release v1.19.49 (2019-06-12)
@@ -2508,14 +2508,14 @@ Release v1.19.40 (2019-05-29)
   * Systems Manager - Documentation updates
 
 ### SDK Enhancements
-* `service/mediastoredata`: Add support for nonseekable io.Reader ([#2622](https://github.com/aws/aws-sdk-go/pull/2622))
+* `service/mediastoredata`: Add support for nonseekable io.Reader ([#2622](https://github.com/SaiVishwas/aws-sdk-go/pull/2622))
   * Updates the SDK's documentation to clarify how you can use the SDK's `aws.ReadSeekCloser` utility function to wrap an io.Reader to be used with an API operation that allows streaming unsigned payload in the operation's request.
   * Adds example using ReadSeekCloser with AWS Elemental MediaStore Data's PutObject API operation.
-* Update CI validation testing for Go module files ([#2626](https://github.com/aws/aws-sdk-go/pull/2626))
+* Update CI validation testing for Go module files ([#2626](https://github.com/SaiVishwas/aws-sdk-go/pull/2626))
   * Suppress changes to the Go module definition files during CI code generation validation testing.
 
 ### SDK Bugs
-* `service/pinpointemail`: Fix client unable to make API requests ([#2625](https://github.com/aws/aws-sdk-go/pull/2625))
+* `service/pinpointemail`: Fix client unable to make API requests ([#2625](https://github.com/SaiVishwas/aws-sdk-go/pull/2625))
   * Fixes the API client's code generation to ignore the `targetPrefix` modeled value. This value is not valid for the REST-JSON protocol.
   * Updates the SDK's code generation to ignore the `targetPrefix` for all protocols other than RPCJSON.
 
@@ -2549,13 +2549,13 @@ Release v1.19.38 (2019-05-24)
   * Documentation updates for OpsWorks for Chef Automate; attribute values updated for Chef Automate 2.0 release.
 
 ### SDK Bugs
-* `service/dynamodb/expression`: Fix Builder with KeyCondition example ([#2618](https://github.com/aws/aws-sdk-go/pull/2618))
+* `service/dynamodb/expression`: Fix Builder with KeyCondition example ([#2618](https://github.com/SaiVishwas/aws-sdk-go/pull/2618))
   * Fixes the ExampleBuilder_WithKeyCondition example to include the ExpressionAttributeNames member being set.
-  * Related to [aws/aws-sdk-go-v2#285](https://github.com/aws/aws-sdk-go-v2/issues/285)
-* `private/model/api`: Improve SDK API reference doc generation ([#2617](https://github.com/aws/aws-sdk-go/pull/2617))
+  * Related to [aws/aws-sdk-go-v2#285](https://github.com/SaiVishwas/aws-sdk-go-v2/issues/285)
+* `private/model/api`: Improve SDK API reference doc generation ([#2617](https://github.com/SaiVishwas/aws-sdk-go/pull/2617))
   * Improves the SDK's generated documentation for API client, operation, and types. This fixes several bugs in the doc generation causing poor formatting, an difficult to read reference documentation.
-  * Fixes [#2572](https://github.com/aws/aws-sdk-go/pull/2572)
-  * Fixes [#2374](https://github.com/aws/aws-sdk-go/pull/2374)
+  * Fixes [#2572](https://github.com/SaiVishwas/aws-sdk-go/pull/2572)
+  * Fixes [#2374](https://github.com/SaiVishwas/aws-sdk-go/pull/2374)
 
 Release v1.19.37 (2019-05-23)
 ===
@@ -2606,14 +2606,14 @@ Release v1.19.34 (2019-05-20)
   * Documentation updates for meteringmarketplace
 
 ### SDK Enhancements
-* Add raw error message bytes to SerializationError errors ([#2600](https://github.com/aws/aws-sdk-go/pull/2600))
+* Add raw error message bytes to SerializationError errors ([#2600](https://github.com/SaiVishwas/aws-sdk-go/pull/2600))
   * Updates the SDK's API error message SerializationError handling to capture the original error message byte, and include it in the SerializationError error value.
-  * Fixes [#2562](https://github.com/aws/aws-sdk-go/issues/2562), [#2411](https://github.com/aws/aws-sdk-go/issues/2411), [#2315](https://github.com/aws/aws-sdk-go/issues/2315)
+  * Fixes [#2562](https://github.com/SaiVishwas/aws-sdk-go/issues/2562), [#2411](https://github.com/SaiVishwas/aws-sdk-go/issues/2411), [#2315](https://github.com/SaiVishwas/aws-sdk-go/issues/2315)
 
 ### SDK Bugs
 * `service/s3/s3manager`: Fix uploader to check for empty part before max parts check (#2556)
   * Fixes the S3 Upload manager's behavior for uploading exactly MaxUploadParts * PartSize to S3. The uploader would previously return an error after the full content was uploaded, because the assert on max upload parts was occurring before the check if there were any more parts to upload.
-  * Fixes [#2557](https://github.com/aws/aws-sdk-go/issues/2557)
+  * Fixes [#2557](https://github.com/SaiVishwas/aws-sdk-go/issues/2557)
 
 Release v1.19.33 (2019-05-17)
 ===
@@ -2810,7 +2810,7 @@ Release v1.19.17 (2019-04-24)
 
 ### Bug Fixes
 * `aws/endpoints`: Fix incorrect AWS Organizations global endpoint
-  * Fixes the endpoint metadata for the AWS Organization in [Release v1.19.16](https://github.com/aws/aws-sdk-go/releases/tag/v1.19.16)
+  * Fixes the endpoint metadata for the AWS Organization in [Release v1.19.16](https://github.com/SaiVishwas/aws-sdk-go/releases/tag/v1.19.16)
 
 Release v1.19.16 (2019-04-24)
 ===
@@ -2887,7 +2887,7 @@ Release v1.19.12 (2019-04-16)
   * This change allows you to select either a weekly or monthly maintenance window for your volume or tape gateway. It also allows you to tag your tape and volume resources on creation by adding a Tag value on calls to the respective api endpoints.
 
 ### SDK Enhancements
-* `example/service/dynamodb`: Add custom unmarshaller error example for TransactWriteItems ([#2548](https://github.com/aws/aws-sdk-go/pull/2548))
+* `example/service/dynamodb`: Add custom unmarshaller error example for TransactWriteItems ([#2548](https://github.com/SaiVishwas/aws-sdk-go/pull/2548))
   * Adds an example for building and using a custom unmarshaller to unmarshal TransactionCancelledExceptions from the error response of TransactWriteItems operation.
 
 Release v1.19.11 (2019-04-05)
@@ -3025,7 +3025,7 @@ Release v1.19.0 (2019-03-21)
   * This release adds the DeleteKnownHostKeys API, which enables Lightsail's browser-based SSH or RDP clients to connect to the instance after a host key mismatch.
 
 ### SDK Features
-* `aws/credentials/stscreds`: Update StdinTokenProvider to prompt on stder ([#2481](https://github.com/aws/aws-sdk-go/pull/2481))
+* `aws/credentials/stscreds`: Update StdinTokenProvider to prompt on stder ([#2481](https://github.com/SaiVishwas/aws-sdk-go/pull/2481))
   * Updates the `stscreds` package default MFA token provider, `StdinTokenProvider`, to prompt on `stderr` instead of `stdout`. This is to make it possible to redirect/pipe output when using `StdinTokenProvider` and still seeing the prompt text.
 
 Release v1.18.6 (2019-03-20)
@@ -3039,7 +3039,7 @@ Release v1.18.6 (2019-03-20)
   * This release increases AWS Marketplace Metering Service maximum usage quantity to 2147483647 and makes parameters usage quantity and dryrun optional.
 
 ### SDK Bugs
-* `private/protocol`: Use correct Content-Type for rest json protocol ([#2497](https://github.com/aws/aws-sdk-go/pull/2497))
+* `private/protocol`: Use correct Content-Type for rest json protocol ([#2497](https://github.com/SaiVishwas/aws-sdk-go/pull/2497))
   * Updates the SDK to use the correct `application/json` content type for all rest json protocol based AWS services. This fixes the bug where the jsonrpc protocol's `application/x-amz-json-X.Y` content type would be used for services like Pinpoint SMS.
 
 Release v1.18.5 (2019-03-19)
@@ -3109,7 +3109,7 @@ Release v1.18.0 (2019-03-11)
   * Documentation updates for Amazon Rekognition
 
 ### SDK Features
-* `service/kinesis`: Enable support for SubscribeToStream API operation ([#2402](https://github.com/aws/aws-sdk-go/pull/2402))
+* `service/kinesis`: Enable support for SubscribeToStream API operation ([#2402](https://github.com/SaiVishwas/aws-sdk-go/pull/2402))
   * Adds support for Kinesis's SubscribeToStream API operation. The API operation response type, `SubscribeToStreamOutput` member, EventStream has a method `Events` which returns a channel to read Kinesis record events from.
 
 Release v1.17.14 (2019-03-08)
@@ -3183,14 +3183,14 @@ Release v1.17.9 (2019-03-01)
   * This release adds support for modifying instance event start time which allows users to reschedule EC2 events.
 
 ### SDK Enhancements
-* `example/service/s3`: Add example of S3 download with progress ([#2456](https://github.com/aws/aws-sdk-go/pull/2456))
+* `example/service/s3`: Add example of S3 download with progress ([#2456](https://github.com/SaiVishwas/aws-sdk-go/pull/2456))
   * Adds a new example to the S3 service's examples. This example shows how you could use the S3's GetObject API call in conjunction with a custom writer keeping track of progress.
-  * Related to [#1868](https://github.com/aws/aws-sdk-go/pull/1868), [#2468](https://github.com/aws/aws-sdk-go/pull/2468)
+  * Related to [#1868](https://github.com/SaiVishwas/aws-sdk-go/pull/1868), [#2468](https://github.com/SaiVishwas/aws-sdk-go/pull/2468)
 
 ### SDK Bugs
-* `aws/session`: Allow HTTP Proxy with custom CA bundle ([#2343](https://github.com/aws/aws-sdk-go/pull/2343))
+* `aws/session`: Allow HTTP Proxy with custom CA bundle ([#2343](https://github.com/SaiVishwas/aws-sdk-go/pull/2343))
   * Ensures Go HTTP Client's  `ProxyFromEnvironment` functionality is still enabled when  custom CA bundles are used with the SDK.
-  * Fix [#2287](https://github.com/aws/aws-sdk-go/pull/2287)
+  * Fix [#2287](https://github.com/SaiVishwas/aws-sdk-go/pull/2287)
 
 Release v1.17.8 (2019-02-28)
 ===
@@ -3210,14 +3210,14 @@ Release v1.17.7 (2019-02-28)
 * `service/waf-regional`: Updates service documentation
 
 ### SDK Bugs
-* `aws/request`: Fix RequestUserAgent tests to be stable ([#2462](https://github.com/aws/aws-sdk-go/pull/2462))
+* `aws/request`: Fix RequestUserAgent tests to be stable ([#2462](https://github.com/SaiVishwas/aws-sdk-go/pull/2462))
   * Fixes the request User-Agent unit tests to be stable across all platforms and environments.
-  * Fixes [#2366](https://github.com/aws/aws-sdk-go/issues/2366)
-* `aws/ec2metadata`: Fix EC2 Metadata client panic with debug logging ([#2461](https://github.com/aws/aws-sdk-go/pull/2461))
+  * Fixes [#2366](https://github.com/SaiVishwas/aws-sdk-go/issues/2366)
+* `aws/ec2metadata`: Fix EC2 Metadata client panic with debug logging ([#2461](https://github.com/SaiVishwas/aws-sdk-go/pull/2461))
   * Fixes a panic that could occur witihin the EC2 Metadata client when both `AWS_EC2_METADATA_DISABLED` env var is set and log level is LogDebugWithHTTPBody.
-* `private/protocol/rest`: Trim space in header key and value ([#2460](https://github.com/aws/aws-sdk-go/pull/2460))
+* `private/protocol/rest`: Trim space in header key and value ([#2460](https://github.com/SaiVishwas/aws-sdk-go/pull/2460))
   * Updates the REST protocol marshaler to trip leading and trailing space from header keys and values before setting the HTTP request header. Fixes a bug when using S3 metadata where metadata values with leading spaces would trigger request signature validation errors when the request is received by the service.
-  * Fixes [#2448](https://github.com/aws/aws-sdk-go/issues/2448)
+  * Fixes [#2448](https://github.com/SaiVishwas/aws-sdk-go/issues/2448)
 
 Release v1.17.6 (2019-02-26)
 ===
@@ -3316,14 +3316,14 @@ Release v1.17.0 (2019-02-18)
   * This release increases the maximum allowed size of SecretString or SecretBinary from 4KB to 7KB in the CreateSecret, UpdateSecret, PutSecretValue and GetSecretValue APIs.
 
 ### SDK Features
-* `service/s3/s3manager`: Update S3 Upload Multipart location ([#2453](https://github.com/aws/aws-sdk-go/pull/2453))
+* `service/s3/s3manager`: Update S3 Upload Multipart location ([#2453](https://github.com/SaiVishwas/aws-sdk-go/pull/2453))
   * Updates the Location returned value of S3 Upload's Multipart UploadOutput type to be consistent with single part upload URL. This update also brings the multipart upload Location inline with the S3 object URLs created by the SDK
-  * Fix [#1385](https://github.com/aws/aws-sdk-go/issues/1385)
+  * Fix [#1385](https://github.com/SaiVishwas/aws-sdk-go/issues/1385)
 
 ### SDK Enhancements
-* `service/s3`: Update BucketRegionError message to include more information ([#2451](https://github.com/aws/aws-sdk-go/pull/2451))
+* `service/s3`: Update BucketRegionError message to include more information ([#2451](https://github.com/SaiVishwas/aws-sdk-go/pull/2451))
   * Updates the BucketRegionError error message to include information about the endpoint and actual region the bucket is in if known. This error message is created by the SDK, but could produce a confusing error message if the user provided a region that doesn't match the endpoint.
-  * Fix [#2426](https://github.com/aws/aws-sdk-go/pull/2451)
+  * Fix [#2426](https://github.com/SaiVishwas/aws-sdk-go/pull/2451)
 
 Release v1.16.36 (2019-02-15)
 ===
@@ -3467,7 +3467,7 @@ Release v1.16.24 (2019-01-23)
 * `service/worklink`: Adds new service
 
 ### SDK Enhancements
-* `aws`: Update Context to be an alias of context.Context for Go 1.9 ([#2412](https://github.com/aws/aws-sdk-go/pull/2412))
+* `aws`: Update Context to be an alias of context.Context for Go 1.9 ([#2412](https://github.com/SaiVishwas/aws-sdk-go/pull/2412))
   * Updates aws.Context interface to be an alias of the standard libraries context.Context type instead of redefining the interface. This will allow IDEs and utilities to interpret the aws.Context as the exactly same type as the standard libraries context.Context.
 
 Release v1.16.23 (2019-01-21)
@@ -3508,7 +3508,7 @@ Release v1.16.21 (2019-01-17)
   * GetLabelDetection now returns bounding box information for common objects and a hierarchical taxonomy of detected labels. The version of the model used for video label detection is also returned. DetectModerationLabels now returns the version of the model used for detecting unsafe content.
 
 ### SDK Enhancements
-* `aws/request: Improve error handling in shouldRetryCancel ([#2298](https://github.com/aws/aws-sdk-go/pull/2298))
+* `aws/request: Improve error handling in shouldRetryCancel ([#2298](https://github.com/SaiVishwas/aws-sdk-go/pull/2298))
   * Simplifies and improves SDK's detection of HTTP request errors that should be retried. Previously the SDK would incorrectly attempt to retry `EHOSTDOWN` connection errors. This change fixes this, by using the `Temporary` interface when available.
 
 Release v1.16.20 (2019-01-16)
@@ -3530,9 +3530,9 @@ Release v1.16.19 (2019-01-14)
   * JoinDomain API supports two more  parameters: organizational unit(OU) and domain controllers.  Two new APIs are introduced: DetachVolume and AttachVolume.
 
 ### SDK Enhancements
-* `aws/endpoints`: Add customization for AWS GovCloud (US) Application Autoscalling ([#2395](https://github.com/aws/aws-sdk-go/pull/2395))
+* `aws/endpoints`: Add customization for AWS GovCloud (US) Application Autoscalling ([#2395](https://github.com/SaiVishwas/aws-sdk-go/pull/2395))
   * Adds workaround to correct the endpoint for Application Autoscaling running in AWS GovCloud (US).
-  * Fixes [#2391](https://github.com/aws/aws-sdk-go/issues/2391)
+  * Fixes [#2391](https://github.com/SaiVishwas/aws-sdk-go/issues/2391)
 
 Release v1.16.18 (2019-01-11)
 ===
@@ -3590,14 +3590,14 @@ Release v1.16.13 (2019-01-03)
 * `service/iotanalytics`: Updates service API and documentation
 
 ### SDK Enhancements
-* `aws/credentials`: Add support for getting credential's ExpiresAt. ([#2375](https://github.com/aws/aws-sdk-go/pull/2375))
+* `aws/credentials`: Add support for getting credential's ExpiresAt. ([#2375](https://github.com/SaiVishwas/aws-sdk-go/pull/2375))
   * Adds an Expirer interface that Providers can implement, and add a suitable implementation to Expiry class used by most Providers. Add a method on Credentials to get the expiration time of the underlying Provider, if Expirer is supported, without exposing Provider to callers.
-  * Fix [#1329](https://github.com/aws/aws-sdk-go/pull/1329)
+  * Fix [#1329](https://github.com/SaiVishwas/aws-sdk-go/pull/1329)
 
 ### SDK Bugs
-* `aws/ec2metadata`: bounds check region identifier before split ([#2380](https://github.com/aws/aws-sdk-go/pull/2380))
+* `aws/ec2metadata`: bounds check region identifier before split ([#2380](https://github.com/SaiVishwas/aws-sdk-go/pull/2380))
   * Adds empty response checking to ec2metadata's Region request to prevent a out of bounds panic if empty response received.
-* Fix SDK's generated API reference doc page's constants section links ([#2373](https://github.com/aws/aws-sdk-go/pull/2373))
+* Fix SDK's generated API reference doc page's constants section links ([#2373](https://github.com/SaiVishwas/aws-sdk-go/pull/2373))
   * Fixes the SDK's generated API reference documentation page's constants section links to to be clickable.
 
 Release v1.16.12 (2019-01-03)
@@ -3632,7 +3632,7 @@ Release v1.16.10 (2018-12-20)
 * `service/transcribe`: Updates service API and documentation
 
 ### SDK Enhancements
-* `service/dynamodb/expression`: Clarify expression examples ([#2367](https://github.com/aws/aws-sdk-go/pull/2367))
+* `service/dynamodb/expression`: Clarify expression examples ([#2367](https://github.com/SaiVishwas/aws-sdk-go/pull/2367))
   * Clarifies the expression package's examples to distinguish the pkg expression from a expr value.
 
 Release v1.16.9 (2018-12-19)
@@ -3681,9 +3681,9 @@ Release v1.16.6 (2018-12-14)
   * Documentation updates for Amazon Redshift
 
 ### SDK Bugs
-* `private/mode/api`: Fix idempotency members not to require validation [#2353](https://github.com/aws/aws-sdk-go/pull/2353)
+* `private/mode/api`: Fix idempotency members not to require validation [#2353](https://github.com/SaiVishwas/aws-sdk-go/pull/2353)
   * Fixes the SDK's usage of API operation request members marked as idempotency tokens to not require validation. These fields will be auto populated by the SDK if the user does not provide a value. The SDK was requiring the user to provide a value or disable validation to use these APIs.
-* deps: Update Go Deps lock file to correct tracking hash [#2354](https://github.com/aws/aws-sdk-go/pull/2354)
+* deps: Update Go Deps lock file to correct tracking hash [#2354](https://github.com/SaiVishwas/aws-sdk-go/pull/2354)
 
 Release v1.16.5 (2018-12-13)
 ===
@@ -3718,9 +3718,9 @@ Release v1.16.3 (2018-12-11)
   * This release adds Delete Object Lifecycling to AWS MediaStore Containers.
 
 ### SDK Bugs
-* `private/model/api`: Fix SDK's unmarshaling of unmodeled response payload ([#2340](https://github.com/aws/aws-sdk-go/pull/2340))
+* `private/model/api`: Fix SDK's unmarshaling of unmodeled response payload ([#2340](https://github.com/SaiVishwas/aws-sdk-go/pull/2340))
   * Fixes the SDK's unmarshaling of API operation response payloads for operations that are unmodeled. Prevents the SDK due to unexpected response payloads causing errors in the API protocol unmarshaler.
-  * Fixes [#2332](https://github.com/aws/aws-sdk-go/issues/2332)
+  * Fixes [#2332](https://github.com/SaiVishwas/aws-sdk-go/issues/2332)
 
 Release v1.16.2 (2018-12-07)
 ===
@@ -3735,9 +3735,9 @@ Release v1.16.2 (2018-12-07)
   * Documentation updates for servicecatalog.
 
 ### SDK Enhancements
-* `aws/signer/v4`: Always sign a request with the current time. ([#2336](https://github.com/aws/aws-sdk-go/pull/2336))
+* `aws/signer/v4`: Always sign a request with the current time. ([#2336](https://github.com/SaiVishwas/aws-sdk-go/pull/2336))
   * Updates the SDK's v4 request signer to always sign requests with the current time. For the first request attempt, the request's creation time was used in the request's signature. In edge cases this allowed the signature to expire before the request was sent if there was significant delay between creating the request and sending it, (e.g. rate limiting).
-* `aws/endpoints`: Deprecate endpoint service ID generation. ([#2338](https://github.com/aws/aws-sdk-go/pull/2338))
+* `aws/endpoints`: Deprecate endpoint service ID generation. ([#2338](https://github.com/SaiVishwas/aws-sdk-go/pull/2338))
   * Deprecates the service ID generation. The list of service IDs do not directly 1:1 relate to a AWS service. The set of ServiceIDs is confusing, and inaccurate. Instead users should use the EndpointID value defined in each service client's package
 
 Release v1.16.1 (2018-12-06)
@@ -3762,23 +3762,23 @@ Release v1.16.0 (2018-12-05)
   * This release adds support for cost allocation tagging. You can now create, delete, and list tags for AmazonMQ resources. For more information about tagging, see AWS Tagging Strategies.
 
 ### SDK Features
-* `aws/credential`: Add credential_process provider ([#2217](https://github.com/aws/aws-sdk-go/pull/2217))
+* `aws/credential`: Add credential_process provider ([#2217](https://github.com/SaiVishwas/aws-sdk-go/pull/2217))
   * Adds support for the shared configuration file's `credential_process` property. This property allows the application to execute a command in order to retrieve AWS credentials for AWS service API request.  In order to use this feature your application must enable the SDK's support of the shared configuration file. See, https://docs.aws.amazon.com/sdk-for-go/api/aws/session/#hdr-Sessions_from_Shared_Config for more information on enabling shared config support.
 
 ### SDK Enhancements
-* `service/sqs`: Add batch checksum validation test ([#2307](https://github.com/aws/aws-sdk-go/pull/2307))
+* `service/sqs`: Add batch checksum validation test ([#2307](https://github.com/SaiVishwas/aws-sdk-go/pull/2307))
   * Adds additional test of the SQS batch checksum validation.
-* `aws/awsutils`: Update not to retrun sensitive fields for StringValue ([#2310](https://github.com/aws/aws-sdk-go/pull/2310))
-* Update SDK client integration tests to be code generated. ([#2308](https://github.com/aws/aws-sdk-go/pull/2308))
-* private/mode/api: Update SDK to require URI path members not be empty ([#2323](https://github.com/aws/aws-sdk-go/pull/2323))
+* `aws/awsutils`: Update not to retrun sensitive fields for StringValue ([#2310](https://github.com/SaiVishwas/aws-sdk-go/pull/2310))
+* Update SDK client integration tests to be code generated. ([#2308](https://github.com/SaiVishwas/aws-sdk-go/pull/2308))
+* private/mode/api: Update SDK to require URI path members not be empty ([#2323](https://github.com/SaiVishwas/aws-sdk-go/pull/2323))
   * Updates the SDK's validation to require that members serialized to URI path must not have empty (zero length) values. Generally these fields are modeled as required, but not always. Fixing this will prevent bugs with REST URI paths requests made for unexpected resources.
 
 ### SDK Bugs
-* aws/session: Fix formatting bug in doc. ([#2294](https://github.com/aws/aws-sdk-go/pull/2294))
+* aws/session: Fix formatting bug in doc. ([#2294](https://github.com/SaiVishwas/aws-sdk-go/pull/2294))
   * Fixes a minor issue in aws/session/doc.go where mistakenly used format specifiers in logger.Println.
-* Fix SDK model cleanup to remove old model folder ([#2324](https://github.com/aws/aws-sdk-go/pull/2324))
+* Fix SDK model cleanup to remove old model folder ([#2324](https://github.com/SaiVishwas/aws-sdk-go/pull/2324))
   * Fixes the SDK's model cleanup to remove the entire old model folder not just the api-2.json file.
-* Fix SDK's vet usage to use go vet with build tags ([#2300](https://github.com/aws/aws-sdk-go/pull/2300))
+* Fix SDK's vet usage to use go vet with build tags ([#2300](https://github.com/SaiVishwas/aws-sdk-go/pull/2300))
   * Updates the SDK's usage of vet to use go vet instead of go tool vet. This allows the SDK to pass build tags and packages instead of just folder paths to the tool.
 
 Release v1.15.90 (2018-12-04)
@@ -3896,13 +3896,13 @@ Release v1.15.83 (2018-11-27)
   * In this release, AWS Server Migration Service (SMS) has added multi-server migration support to simplify the application migration process. Customers can migrate all their application-specific servers together as a single unit as opposed to moving individual server one at a time. The new functionality includes - 1. Ability to group on-premises servers into applications and application tiers. 2. Auto-generated CloudFormation Template and Stacks for launching migrated servers into EC2. 3. Ability to run post-launch configuration scripts to configure servers and applications in EC2. In order for SMS to launch servers into your AWS account using CloudFormation Templates, we have also updated the ServerMigrationServiceRole IAM policy to include appropriate permissions. Refer to Server Migration Service documentation for more details.
 
 ### SDK Enhancements
-* `service/s3/s3manager`: Generate Upload Manager's UploadInput structure ([#2296](https://github.com/aws/aws-sdk-go/pull/2296))
+* `service/s3/s3manager`: Generate Upload Manager's UploadInput structure ([#2296](https://github.com/SaiVishwas/aws-sdk-go/pull/2296))
   * Updates the SDK's code generation to also generate the S3 Upload Manager's UploadInput structure type based on the modeled S3 PutObjectInput. This ensures parity between the two types, and the S3 manager does not fall behind the capabilities of PutObject.
 
 ### SDK Bugs
-* `private/model/api`: Fix model loading to not require docs model. ([#2303](https://github.com/aws/aws-sdk-go/pull/2303))
+* `private/model/api`: Fix model loading to not require docs model. ([#2303](https://github.com/SaiVishwas/aws-sdk-go/pull/2303))
   * Fixes the SDK's model loading to not require that the docs model be present. This model isn't explicitly required.
-* Fixup endpoint discovery unit test to be stable ([#2305](https://github.com/aws/aws-sdk-go/pull/2305))
+* Fixup endpoint discovery unit test to be stable ([#2305](https://github.com/SaiVishwas/aws-sdk-go/pull/2305))
   * Fixes the SDK's endpoint discovery async unit test to be stable, and produce consistent unit test results.
 
 Release v1.15.82 (2018-11-26)
@@ -4538,9 +4538,9 @@ Release v1.15.31 (2018-09-07)
   * * Adding a log prefix parameter for filter log events API and minor updates to the documentation
 
 ### SDK Enhancements
-* `private/protocol/json/jsonutil`: Use json.Decoder to decrease memory allocation ([#2115](https://github.com/aws/aws-sdk-go/pull/2115))
+* `private/protocol/json/jsonutil`: Use json.Decoder to decrease memory allocation ([#2115](https://github.com/SaiVishwas/aws-sdk-go/pull/2115))
   * Updates the SDK's JSON protocol marshaler to use `json.Decoder` instead of `ioutil.ReadAll`. This reduces the memory unmarshaling JSON payloads by about 50%.
-  * Fix [#2114](https://github.com/aws/aws-sdk-go/pull/2114)
+  * Fix [#2114](https://github.com/SaiVishwas/aws-sdk-go/pull/2114)
 
 Release v1.15.29 (2018-09-06)
 ===
@@ -4555,7 +4555,7 @@ Release v1.15.29 (2018-09-06)
   * This release adds support for Cost Allocation through tagging and also enables adding, editing, and removal of tags from the MediaConvert console.
 
 ### SDK Enhancements
-* `private/protocol`: Serialization errors will now be wrapped in `awserr.RequestFailure` types ([#2135](https://github.com/aws/aws-sdk-go/pull/2135))
+* `private/protocol`: Serialization errors will now be wrapped in `awserr.RequestFailure` types ([#2135](https://github.com/SaiVishwas/aws-sdk-go/pull/2135))
   * Updates the SDK protocol unmarshaling to handle the `SerializationError` as a request failure allowing for inspection of `requestID`s and status codes.
 
 Release v1.15.28 (2018-09-05)
@@ -4573,15 +4573,15 @@ Release v1.15.28 (2018-09-05)
   * Parquet input format support added for the SelectObjectContent API
 
 ### SDK Enhancements
-* `private/model/api`: Add "Deprecated" to deprecated API operation and type doc strings ([#2129](https://github.com/aws/aws-sdk-go/pull/2129))
+* `private/model/api`: Add "Deprecated" to deprecated API operation and type doc strings ([#2129](https://github.com/SaiVishwas/aws-sdk-go/pull/2129))
   * Updates the SDK's code generation to include `Deprecated` in the documentation string for API operations and types that are depercated by a service.
   * Related to [golang/go#10909](https://github.com/golang/go/issues/10909)
   * https://blog.golang.org/godoc-documenting-go-code
 
 ### SDK Bugs
-* `service/s3/s3manager`: Fix Download Manager with iterator docs ([#2131](https://github.com/aws/aws-sdk-go/pull/2131))
+* `service/s3/s3manager`: Fix Download Manager with iterator docs ([#2131](https://github.com/SaiVishwas/aws-sdk-go/pull/2131))
   * Fixes the S3 Download manager's DownloadWithIterator documentation example.
-  * Fixes [#1824](https://github.com/aws/aws-sdk-go/issues/1824)
+  * Fixes [#1824](https://github.com/SaiVishwas/aws-sdk-go/issues/1824)
 
 Release v1.15.27 (2018-09-04)
 ===
@@ -4846,17 +4846,17 @@ Release v1.15.2 (2018-07-31)
   * Fixes an issue with modeled timestamps being labeled with the incorrect format.
 
 ### SDK Enhancements
-* `service/dynamodb/dynamodbattribute`: Add support for custom struct tag keys([#2054](https://github.com/aws/aws-sdk-go/pull/2054))
+* `service/dynamodb/dynamodbattribute`: Add support for custom struct tag keys([#2054](https://github.com/SaiVishwas/aws-sdk-go/pull/2054))
   * Adds support for (un)marshaling Go types using custom struct tag keys. The new `MarshalOptions.TagKey` allows the user to specify the tag key to use when (un)marshaling struct fields.  Adds support for struct tags such as `yaml`, `toml`, etc. Support for these keys are in name only, and require the tag value format and values to be supported by the package's Marshalers.
 
 ### SDK Bugs
-* `aws/endpoints`: Add workaround for AWS China Application Autoscaling ([#2080](https://github.com/aws/aws-sdk-go/pull/2080))
+* `aws/endpoints`: Add workaround for AWS China Application Autoscaling ([#2080](https://github.com/SaiVishwas/aws-sdk-go/pull/2080))
   * Adds workaround to correct the endpoint for Application Autoscaling running in AWS China. This will allow your application to make API calls to Application Autoscaling service in AWS China.
-  * Fixes [#2079](https://github.com/aws/aws-sdk-go/issues/2079)
-  * Fixes [#1957](https://github.com/aws/aws-sdk-go/issues/1957)
-* `private/protocol/xml/xmlutil`: Fix SDK marshaling of empty types ([#2081](https://github.com/aws/aws-sdk-go/pull/2081))
+  * Fixes [#2079](https://github.com/SaiVishwas/aws-sdk-go/issues/2079)
+  * Fixes [#1957](https://github.com/SaiVishwas/aws-sdk-go/issues/1957)
+* `private/protocol/xml/xmlutil`: Fix SDK marshaling of empty types ([#2081](https://github.com/SaiVishwas/aws-sdk-go/pull/2081))
   * Fixes the SDK's marshaling of types without members. This corrects the issue where the SDK would not marshal an XML tag for a type, if that type did not have any exported members.
-  * Fixes [#2015](https://github.com/aws/aws-sdk-go/issues/2015)
+  * Fixes [#2015](https://github.com/SaiVishwas/aws-sdk-go/issues/2015)
 
 Release v1.15.1 (2018-07-30)
 ===
@@ -4895,20 +4895,20 @@ Release v1.15.0 (2018-07-26)
   * This release updates AWS Systems Manager APIs to allow customers to attach labels to history parameter records and reference history parameter records via labels.  It also adds Parameter Store integration with AWS Secrets Manager to allow referencing and retrieving AWS Secrets Manager's secrets from Parameter Store.
 
 ### SDK Features
-* `private/model/api`: SDK APIs input/output are not consistently generated ([#2073](https://github.com/aws/aws-sdk-go/pull/2073))
-  * Updates the SDK's API code generation to generate the API input and output types consistently. This ensures that the SDK will no longer rename input/output types unexpectedly as in [#2070](https://github.com/aws/aws-sdk-go/issues/2070). SDK API input and output parameter types will always be the API name with a suffix of Input and Output.
+* `private/model/api`: SDK APIs input/output are not consistently generated ([#2073](https://github.com/SaiVishwas/aws-sdk-go/pull/2073))
+  * Updates the SDK's API code generation to generate the API input and output types consistently. This ensures that the SDK will no longer rename input/output types unexpectedly as in [#2070](https://github.com/SaiVishwas/aws-sdk-go/issues/2070). SDK API input and output parameter types will always be the API name with a suffix of Input and Output.
   * Existing service APIs which were incorrectly modeled have been preserved to ensure they do not break.
-  * Fixes [#2070](https://github.com/aws/aws-sdk-go/issues/2070)
+  * Fixes [#2070](https://github.com/SaiVishwas/aws-sdk-go/issues/2070)
 
 ### SDK Enhancements
-* `service/s3/s3manager`: Document default behavior for Upload's MaxNumParts ([#2077](https://github.com/aws/aws-sdk-go/issues/2077))
+* `service/s3/s3manager`: Document default behavior for Upload's MaxNumParts ([#2077](https://github.com/SaiVishwas/aws-sdk-go/issues/2077))
   * Updates the S3 Upload Manager's default behavior for MaxNumParts, and ensures that the Uploader.MaxNumPart's member value is initialized properly if the type was created via struct initialization instead of using the NewUploader function.
-  * Fixes [#2015](https://github.com/aws/aws-sdk-go/issues/2015)
+  * Fixes [#2015](https://github.com/SaiVishwas/aws-sdk-go/issues/2015)
 
 ### SDK Bugs
-* `private/model/api`: SDK APIs input/output are not consistently generated ([#2073](https://github.com/aws/aws-sdk-go/pull/2073))
+* `private/model/api`: SDK APIs input/output are not consistently generated ([#2073](https://github.com/SaiVishwas/aws-sdk-go/pull/2073))
   * Fixes EFS service breaking change in v1.14.26 where `FileSystemDescription` was incorrectly renamed to `UpdateFileSystemOutput.
-  * Fixes [#2070](https://github.com/aws/aws-sdk-go/issues/2070)
+  * Fixes [#2070](https://github.com/SaiVishwas/aws-sdk-go/issues/2070)
 
 Release v1.14.33 (2018-07-25)
 ===
@@ -4935,7 +4935,7 @@ Release v1.14.31 (2018-07-20)
 * `service/dlm`: Updates service documentation
 
 ### SDK Enhancements
-* `service/s3/s3manager`: Add documentation for sequential download [#2065](https://github.com/aws/aws-sdk-go/pull/2065)
+* `service/s3/s3manager`: Add documentation for sequential download [#2065](https://github.com/SaiVishwas/aws-sdk-go/pull/2065)
   * Adds documentation for downloading object sequentially with the S3 download manager.
 
 Release v1.14.30 (2018-07-19)
@@ -4946,9 +4946,9 @@ Release v1.14.30 (2018-07-19)
   * Adds support for DASH OriginEnpoints with multiple media presentation description periods triggered by presence of SCTE-35 ad markers in Channel input streams.
 
 ### SDK Enhancements
-* `aws/default`: Add helper to get default provider chain list of credential providers ([#2059](https://github.com/aws/aws-sdk-go/issues/2051))
+* `aws/default`: Add helper to get default provider chain list of credential providers ([#2059](https://github.com/SaiVishwas/aws-sdk-go/issues/2051))
   * Exports the default provider chain list of providers so it can be used to compose custom chains of credential providers.
-  * Fixes [#2051](https://github.com/aws/aws-sdk-go/issues/2051)
+  * Fixes [#2051](https://github.com/SaiVishwas/aws-sdk-go/issues/2051)
 
 Release v1.14.29 (2018-07-18)
 ===
@@ -4994,7 +4994,7 @@ Release v1.14.26 (2018-07-12)
   * SDK release to support IAM delegated administrator feature. The feature lets customers attach permissions boundary to IAM principals. The IAM principals cannot operate exceeding the permission specified in permissions boundary.
 
 ### SDK Enhancements
-* `aws/credentials/ec2rolecreds`: Avoid unnecessary redirect [#2037](https://github.com/aws/aws-sdk-go/pull/2037)
+* `aws/credentials/ec2rolecreds`: Avoid unnecessary redirect [#2037](https://github.com/SaiVishwas/aws-sdk-go/pull/2037)
   * This removes the unnecessary redirect for /latest/meta-data/iam/security-credentials/
 
 Release v1.14.25 (2018-07-11)
@@ -5072,7 +5072,7 @@ Release v1.14.19 (2018-07-03)
   * Feature 1 - On-demand cluster release version - When Amazon Redshift releases a new cluster version, you can choose to upgrade to that version immediately instead of waiting until your next maintenance window. You can also choose to roll back to a previous version. The two new APIs added for managing cluster release version are - ModifyClusterDbRevision, DescribeClusterDbRevisions. Feature 2 - Upgradeable reserved instance - You can now exchange one Reserved Instance for a new Reserved Instance with no changes to the terms of your existing Reserved Instance (term, payment type, or number of nodes). The two new APIs added for managing these upgrades are - AcceptReservedNodeExchange, GetReservedNodeExchangeOfferings.
 
 ### SDK Enhancements
-* `private/model/api`: Add EventStream support over RPC protocl ([#1998](https://github.com/aws/aws-sdk-go/pull/1998))
+* `private/model/api`: Add EventStream support over RPC protocl ([#1998](https://github.com/SaiVishwas/aws-sdk-go/pull/1998))
   * Adds support for EventStream over JSON PRC protocol. This adds support for the EventStream's initial-response event, EventStream headers, and EventStream modeled exceptions. Also replaces the hand written tests with generated tests for EventStream usage.
 
 Release v1.14.18 (2018-07-02)
@@ -5113,7 +5113,7 @@ Release v1.14.15 (2018-06-27)
   * Documentation updates for secretsmanager
 
 ### SDK Bugs
-* `aws/csm`: Final API Call Attempt events were not being called [#2008](https://github.com/aws/aws-sdk-go/pull/2008)
+* `aws/csm`: Final API Call Attempt events were not being called [#2008](https://github.com/SaiVishwas/aws-sdk-go/pull/2008)
 
 Release v1.14.14 (2018-06-26)
 ===
@@ -5164,10 +5164,10 @@ Release v1.14.10 (2018-06-20)
   * This release adds a new parameter to specify the retention period for Performance Insights data for RDS instances. You can either choose 7 days (default) or 731 days. For more information, see Amazon RDS Documentation.
 
 ### SDK Enhancements
-* `service/s3`: Update SelectObjectContent doc example to be on the API not nested type. ([#1991](https://github.com/aws/aws-sdk-go/pull/1991))
+* `service/s3`: Update SelectObjectContent doc example to be on the API not nested type. ([#1991](https://github.com/SaiVishwas/aws-sdk-go/pull/1991))
 
 ### SDK Bugs
-* `aws/client`: Fix HTTP debug log EventStream payloads ([#2000](https://github.com/aws/aws-sdk-go/pull/2000))
+* `aws/client`: Fix HTTP debug log EventStream payloads ([#2000](https://github.com/SaiVishwas/aws-sdk-go/pull/2000))
   * Fixes the SDK's HTTP client debug logging to not log the HTTP response body for EventStreams. This prevents the SDK from buffering a very large amount of data to be logged at once. The aws.LogDebugWithEventStreamBody should be used to log the event stream events.
   * Fixes a bug in the SDK's response logger which will buffer the response body's content if LogDebug is enabled but LogDebugWithHTTPBody is not.
 
@@ -5180,7 +5180,7 @@ Release v1.14.9 (2018-06-19)
   * Documentation updates for rekognition
 
 ### SDK Bugs
-* `private/model/api`: Update client ServiceName to be based on name of service for new services. ([#1997](https://github.com/aws/aws-sdk-go/pull/1997))
+* `private/model/api`: Update client ServiceName to be based on name of service for new services. ([#1997](https://github.com/SaiVishwas/aws-sdk-go/pull/1997))
     * Fixes the SDK's `ServiceName` AWS service client package value to be unique based on the service name for new AWS services. Does not change exiting client packages.
 
 Release v1.14.8 (2018-06-15)
@@ -5219,13 +5219,13 @@ Release v1.14.5 (2018-06-12)
   * Introduces daemon scheduling capability to deploy one task per instance on selected instances in a cluster.  Adds a "force" flag to the DeleteService API to delete a service without requiring to scale down the number of tasks to zero.
 
 ### SDK Enhancements
-* `service/rds/rdsutils`: Clean up the rdsutils package and adds a new builder to construct connection strings ([#1985](https://github.com/aws/aws-sdk-go/pull/1985))
+* `service/rds/rdsutils`: Clean up the rdsutils package and adds a new builder to construct connection strings ([#1985](https://github.com/SaiVishwas/aws-sdk-go/pull/1985))
     * Rewords documentation to be more useful and provides links to prior setup needed to support authentication tokens. Introduces a builder that allows for building connection strings
 
 ### SDK Bugs
-* `aws/signer/v4`: Fix X-Amz-Content-Sha256 being in to query for presign ([#1976](https://github.com/aws/aws-sdk-go/pull/1976))
+* `aws/signer/v4`: Fix X-Amz-Content-Sha256 being in to query for presign ([#1976](https://github.com/SaiVishwas/aws-sdk-go/pull/1976))
     * Fixes the bug which would allow the X-Amz-Content-Sha256 header to be promoted to the query string when presigning a S3 request. This bug also was preventing users from setting their own sha256 value for a presigned URL. Presigned requests generated with the custom sha256 would of always failed with invalid signature.
-    * Fixes [#1974](https://github.com/aws/aws-sdk-go/pull/1974)
+    * Fixes [#1974](https://github.com/SaiVishwas/aws-sdk-go/pull/1974)
 
 Release v1.14.4 (2018-06-11)
 ===
@@ -5281,10 +5281,10 @@ Release v1.14.0 (2018-06-04)
   * Amazon SageMaker has added the ability to run hyperparameter tuning jobs. A hyperparameter tuning job will create and evaluate multiple training jobs while tuning algorithm hyperparameters, to optimize a customer specified objective metric.
 
 ### SDK Features
-* Add support for EventStream based APIs (S3 SelectObjectContent) ([#1941](https://github.com/aws/aws-sdk-go/pull/1941))
+* Add support for EventStream based APIs (S3 SelectObjectContent) ([#1941](https://github.com/SaiVishwas/aws-sdk-go/pull/1941))
   * Adds support for EventStream asynchronous APIs such as S3 SelectObjectContents API. This API allows your application to receiving multiple events asynchronously from the API response. Your application recieves these events from a channel on the API response.
-  * See PR [#1941](https://github.com/aws/aws-sdk-go/pull/1941) for example.
-  * Fixes [#1895](https://github.com/aws/aws-sdk-go/issues/1895)
+  * See PR [#1941](https://github.com/SaiVishwas/aws-sdk-go/pull/1941) for example.
+  * Fixes [#1895](https://github.com/SaiVishwas/aws-sdk-go/issues/1895)
 
 Release v1.13.60 (2018-06-01)
 ===
@@ -5302,9 +5302,9 @@ Release v1.13.60 (2018-06-01)
   * The SNS Subscribe API has been updated with two new optional parameters: Attributes and ReturnSubscriptionArn. Attributes is a map of subscription attributes which can be one or more of: FilterPolicy, DeliveryPolicy, and RawMessageDelivery. ReturnSubscriptionArn is a boolean parameter that overrides the default behavior of returning "pending confirmation" for subscriptions that require confirmation instead of returning the subscription ARN.
 
 ### SDK Bugs
-* `private/mode/api`: Fix error code constants being generated incorrectly.([#1958](https://github.com/aws/aws-sdk-go/issues/1958))
+* `private/mode/api`: Fix error code constants being generated incorrectly.([#1958](https://github.com/SaiVishwas/aws-sdk-go/issues/1958))
     * Fixes the SDK's code generation to not modify the error code text value when generating error code constants. This prevents generating error code values which are invalid and will never be sent by the service. This change does not change the error code constant variable name generated by the SDK, only the value of the error code.
-    * Fixes [#1856](https://github.com/aws/aws-sdk-go/issues/1856)
+    * Fixes [#1856](https://github.com/SaiVishwas/aws-sdk-go/issues/1856)
 
 Release v1.13.59 (2018-05-31)
 ===
@@ -5353,9 +5353,9 @@ Release v1.13.55 (2018-05-24)
   * Documentation updates for secretsmanager
 
 ### SDK Bugs
-* `service/cloudwatchlogs`: Fix pagination with cloudwatchlogs ([#1945](https://github.com/aws/aws-sdk-go/pull/1945))
+* `service/cloudwatchlogs`: Fix pagination with cloudwatchlogs ([#1945](https://github.com/SaiVishwas/aws-sdk-go/pull/1945))
   * Fixes the SDK's behavior with CloudWatchLogs APIs which return duplicate `NextToken` values to signal end of pagination.
-  * Fixes [#1908](https://github.com/aws/aws-sdk-go/pull/1908)
+  * Fixes [#1908](https://github.com/SaiVishwas/aws-sdk-go/pull/1908)
 
 Release v1.13.54 (2018-05-22)
 ===
@@ -5553,14 +5553,14 @@ Release v1.13.35 (2018-04-23)
 * `service/iotanalytics`: Adds new service
 
 ### SDK Enhancements
-* `aws/endpoints`: Add Get Region description to endpoints package ([#1909](https://github.com/aws/aws-sdk-go/pull/1909))
+* `aws/endpoints`: Add Get Region description to endpoints package ([#1909](https://github.com/SaiVishwas/aws-sdk-go/pull/1909))
   * Adds exposing the description field of the endpoints Region struct.
-  * Fixes [#1194](https://github.com/aws/aws-sdk-go/issues/1194)
+  * Fixes [#1194](https://github.com/SaiVishwas/aws-sdk-go/issues/1194)
 
 ### SDK Bugs
-* Fix XML unmarshaler not correctly unmarshaling list of timestamp values ([#1894](https://github.com/aws/aws-sdk-go/pull/1894))
+* Fix XML unmarshaler not correctly unmarshaling list of timestamp values ([#1894](https://github.com/SaiVishwas/aws-sdk-go/pull/1894))
   * Fixes a bug in the XML unmarshaler that would incorrectly try to unmarshal "time.Time" parameters that did not have the struct tag type on them. This would occur for nested lists like CloudWatch's GetMetricDataResponse MetricDataResults timestamp parameters.
-  * Fixes [#1892](https://github.com/aws/aws-sdk-go/issues/1892)
+  * Fixes [#1892](https://github.com/SaiVishwas/aws-sdk-go/issues/1892)
 
 Release v1.13.34 (2018-04-20)
 ===
@@ -5735,9 +5735,9 @@ Release v1.13.19 (2018-03-22)
 * `aws/endpoints`: Updated Regions and Endpoints metadata.
 
 ### SDK Bugs
-* `aws/endpoints`: Use service metadata for fallback signing name ([#1854](https://github.com/aws/aws-sdk-go/pull/1854))
+* `aws/endpoints`: Use service metadata for fallback signing name ([#1854](https://github.com/SaiVishwas/aws-sdk-go/pull/1854))
   * Updates the SDK's endpoint resolution to fallback deriving the service's signing name from the service's modeled metadata in addition the endpoints modeled data.
-  * Fixes [#1850](https://github.com/aws/aws-sdk-go/issues/1850)
+  * Fixes [#1850](https://github.com/SaiVishwas/aws-sdk-go/issues/1850)
 
 Release v1.13.18 (2018-03-21)
 ===
@@ -5945,10 +5945,10 @@ Release v1.12.77 (2018-02-14)
 * `service/lex-models`: Updates service API and documentation
 
 ### Bug Fixes
-* `aws/request`: Fix support for streamed payloads for unsigned body request ([#1778](https://github.com/aws/aws-sdk-go/pull/1778))
+* `aws/request`: Fix support for streamed payloads for unsigned body request ([#1778](https://github.com/SaiVishwas/aws-sdk-go/pull/1778))
   * Fixes the SDK's handling of the SDK's `ReaderSeekerCloser` helper type to not allow erroneous request retries, and request signature generation. This Fix allows you to use the `aws.ReaderSeekerCloser` to wrap an arbitrary `io.Reader` for request `io.ReadSeeker` input parameters. APIs such as lex-runtime's PostContent can now make use of the
 ReaderSeekerCloser type without causing unexpected failures.
-  * Fixes [#1776](https://github.com/aws/aws-sdk-go/issues/1776)
+  * Fixes [#1776](https://github.com/SaiVishwas/aws-sdk-go/issues/1776)
 
 Release v1.12.76 (2018-02-13)
 ===
@@ -6020,15 +6020,15 @@ Release v1.12.72 (2018-02-07)
   * This Patch Manager release supports configuring Linux repos as part of patch baselines, controlling updates of non-OS security packages and also creating patch baselines for SUSE12
 
 ### SDK Enhancements
-* `private/model/api`: Add validation to ensure there is no duplication of services in models/apis ([#1758](https://github.com/aws/aws-sdk-go/pull/1758))
+* `private/model/api`: Add validation to ensure there is no duplication of services in models/apis ([#1758](https://github.com/SaiVishwas/aws-sdk-go/pull/1758))
     * Prevents the SDK from mistakenly generating code a single service multiple times with different model versions.
-* `example/service/ec2/instancesbyRegion`: Fix typos in example ([#1762](https://github.com/aws/aws-sdk-go/pull/1762))
+* `example/service/ec2/instancesbyRegion`: Fix typos in example ([#1762](https://github.com/SaiVishwas/aws-sdk-go/pull/1762))
 * `private/model/api`: removing SDK API reference crosslinks from input/output shapes. (#1765)
 
 ### SDK Bugs
-* `aws/session`: Fix bug in session.New not supporting AWS_SDK_LOAD_CONFIG ([#1770](https://github.com/aws/aws-sdk-go/pull/1770))
+* `aws/session`: Fix bug in session.New not supporting AWS_SDK_LOAD_CONFIG ([#1770](https://github.com/SaiVishwas/aws-sdk-go/pull/1770))
     * Fixes a bug in the session.New function that was not correctly sourcing the shared configuration files' path.
-    * Fixes [#1771](https://github.com/aws/aws-sdk-go/pull/1771)
+    * Fixes [#1771](https://github.com/SaiVishwas/aws-sdk-go/pull/1771)
 
 Release v1.12.71 (2018-02-05)
 ===
@@ -6058,9 +6058,9 @@ Release v1.12.69 (2018-01-26)
 ===
 
 ### SDK Bugs
-* `models/api`: Fix colliding names [#1754](https://github.com/aws/aws-sdk-go/pull/1754) [#1756](https://github.com/aws/aws-sdk-go/pull/1756)
+* `models/api`: Fix colliding names [#1754](https://github.com/SaiVishwas/aws-sdk-go/pull/1754) [#1756](https://github.com/SaiVishwas/aws-sdk-go/pull/1756)
     * SDK had duplicate folders that were causing errors in some builds.
-    * Fixes [#1753](https://github.com/aws/aws-sdk-go/issues/1753)
+    * Fixes [#1753](https://github.com/SaiVishwas/aws-sdk-go/issues/1753)
 
 Release v1.12.68 (2018-01-25)
 ===
@@ -6076,9 +6076,9 @@ Release v1.12.68 (2018-01-25)
   * AWS Lambda now supports Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
 
 ### SDK Bugs
-* `service/s3/s3manager`: Fix check for nil OrigErr in Error() [#1749](https://github.com/aws/aws-sdk-go/issues/1749)
+* `service/s3/s3manager`: Fix check for nil OrigErr in Error() [#1749](https://github.com/SaiVishwas/aws-sdk-go/issues/1749)
     * S3 Manager's `Error` type did not check for nil of `OrigErr` when calling `Error()`
-    * Fixes [#1748](https://github.com/aws/aws-sdk-go/issues/1748)
+    * Fixes [#1748](https://github.com/SaiVishwas/aws-sdk-go/issues/1748)
 
 Release v1.12.67 (2018-01-22)
 ===
@@ -6305,7 +6305,7 @@ Release v1.12.43 (2017-12-07)
   * Added support for encryption of data at rest on Amazon Elasticsearch Service using AWS KMS
 
 ### SDK Bugs
-* `models/apis` Fixes removes colliding sagemaker models folders ([#1686](https://github.com/aws/aws-sdk-go/pull/1686))
+* `models/apis` Fixes removes colliding sagemaker models folders ([#1686](https://github.com/SaiVishwas/aws-sdk-go/pull/1686))
   * Fixes Release v1.12.42's SageMaker vs sagemaker model folders.
 
 Release v1.12.42 (2017-12-06)
@@ -6484,8 +6484,8 @@ Release v1.12.31 (2017-11-20)
   * DescribeGroups API and miscellaneous enhancements
 
 ### SDK Bugs
-* `aws/client`: Retry delays for throttled exception were not limited to 5 minutes [#1654](https://github.com/aws/aws-sdk-go/pull/1654)
-  * Fixes [#1653](https://github.com/aws/aws-sdk-go/issues/1653)
+* `aws/client`: Retry delays for throttled exception were not limited to 5 minutes [#1654](https://github.com/SaiVishwas/aws-sdk-go/pull/1654)
+  * Fixes [#1653](https://github.com/SaiVishwas/aws-sdk-go/issues/1653)
 
 Release v1.12.30 (2017-11-17)
 ===
@@ -6502,9 +6502,9 @@ Release v1.12.30 (2017-11-17)
   * Added ORC to the supported S3 Inventory formats.
 
 ### SDK Bugs
-* `private/protocol/restjson`: Define JSONValue marshaling for body and querystring ([#1640](https://github.com/aws/aws-sdk-go/pull/1640))
+* `private/protocol/restjson`: Define JSONValue marshaling for body and querystring ([#1640](https://github.com/SaiVishwas/aws-sdk-go/pull/1640))
   * Adds support for APIs which use JSONValue for body and querystring targets.
-  * Fixes [#1636](https://github.com/aws/aws-sdk-go/issues/1636)
+  * Fixes [#1636](https://github.com/SaiVishwas/aws-sdk-go/issues/1636)
 
 Release v1.12.29 (2017-11-16)
 ===
@@ -6550,9 +6550,9 @@ Release v1.12.27 (2017-11-14)
   * EC2 Systems Manager GetInventory API adds support for aggregation.
 
 ### SDK Enhancements
-* `aws/request`: Remove default port from HTTP host header ([#1618](https://github.com/aws/aws-sdk-go/pull/1618))
+* `aws/request`: Remove default port from HTTP host header ([#1618](https://github.com/SaiVishwas/aws-sdk-go/pull/1618))
   * Updates the SDK to automatically remove default ports based on the URL's scheme when setting the HTTP Host header's value.
-  * Fixes [#1537](https://github.com/aws/aws-sdk-go/issues/1537)
+  * Fixes [#1537](https://github.com/SaiVishwas/aws-sdk-go/issues/1537)
 
 Release v1.12.26 (2017-11-09)
 ===
@@ -6618,9 +6618,9 @@ Release v1.12.21 (2017-11-02)
 * `aws/endpoints`: Updated Regions and Endpoints metadata.
 
 ### SDK Bugs
-* `aws/request`: Fix bug in request presign creating invalid URL ([#1624](https://github.com/aws/aws-sdk-go/pull/1624))
+* `aws/request`: Fix bug in request presign creating invalid URL ([#1624](https://github.com/SaiVishwas/aws-sdk-go/pull/1624))
   * Fixes a bug the Request Presign and PresignRequest methods that would allow a invalid expire duration as input. A expire time of 0 would be interpreted by the SDK to generate a normal request signature, not a presigned URL. This caused the returned URL unusable.
-  * Fixes [#1617](https://github.com/aws/aws-sdk-go/issues/1617)
+  * Fixes [#1617](https://github.com/SaiVishwas/aws-sdk-go/issues/1617)
 
 Release v1.12.20 (2017-11-01)
 ===
@@ -6780,7 +6780,7 @@ Release v1.12.5 (2017-10-04)
   * Added a new API that checks whether a domain name can be transferred to Amazon Route 53.
 
 ### SDK Bugs
-* `service/s3/s3crypto`: Correct PutObjectRequest documentation ([#1568](https://github.com/aws/aws-sdk-go/pull/1568))
+* `service/s3/s3crypto`: Correct PutObjectRequest documentation ([#1568](https://github.com/SaiVishwas/aws-sdk-go/pull/1568))
   * s3Crypto's PutObjectRequest docstring example was using an incorrect value. Corrected the type used in the example.
 
 Release v1.12.4 (2017-10-03)
@@ -6814,11 +6814,11 @@ Release v1.12.2 (2017-09-29)
   * This change allows customers to reset elements of health check.
 
 ### SDK Bugs
-* `private/protocol/query`: Fix query protocol handling of nested byte slices ([#1557](https://github.com/aws/aws-sdk-go/issues/1557))
+* `private/protocol/query`: Fix query protocol handling of nested byte slices ([#1557](https://github.com/SaiVishwas/aws-sdk-go/issues/1557))
   * Fixes the query protocol to correctly marshal nested []byte values of API operations.
-* `service/s3`: Fix PutObject and UploadPart API to include ContentMD5 field ([#1559](https://github.com/aws/aws-sdk-go/pull/1559))
+* `service/s3`: Fix PutObject and UploadPart API to include ContentMD5 field ([#1559](https://github.com/SaiVishwas/aws-sdk-go/pull/1559))
   * Fixes the SDK's S3 PutObject and UploadPart API code generation to correctly render the ContentMD5 field into the associated input types for these two API operations.
-  * Fixes [#1553](https://github.com/aws/aws-sdk-go/pull/1553)
+  * Fixes [#1553](https://github.com/SaiVishwas/aws-sdk-go/pull/1553)
 
 Release v1.12.1 (2017-09-27)
 ===
@@ -6833,7 +6833,7 @@ Release v1.12.0 (2017-09-26)
 
 ### SDK Bugs
 * `API Marshaler`: Revert REST JSON and XML protocol marshaler improvements
-  * Bug [#1550](https://github.com/aws/aws-sdk-go/issues/1550) identified a missed condition in the Amazon Route 53 RESTXML protocol marshaling causing requests to that service to fail. Reverting the marshaler improvements until the bug can be fixed.
+  * Bug [#1550](https://github.com/SaiVishwas/aws-sdk-go/issues/1550) identified a missed condition in the Amazon Route 53 RESTXML protocol marshaling causing requests to that service to fail. Reverting the marshaler improvements until the bug can be fixed.
 
 Release v1.11.0 (2017-09-26)
 ===
@@ -6845,17 +6845,17 @@ Release v1.11.0 (2017-09-26)
 ### SDK Features
 * Add dep Go dependency management metadata files (#1544)
   * Adds the Go `dep` dependency management metadata files to the SDK.
-  * Fixes [#1451](https://github.com/aws/aws-sdk-go/issues/1451)
-  * Fixes [#634](https://github.com/aws/aws-sdk-go/issues/634)
-* `service/dynamodb/expression`: Add expression building utility for DynamoDB ([#1527](https://github.com/aws/aws-sdk-go/pull/1527))
+  * Fixes [#1451](https://github.com/SaiVishwas/aws-sdk-go/issues/1451)
+  * Fixes [#634](https://github.com/SaiVishwas/aws-sdk-go/issues/634)
+* `service/dynamodb/expression`: Add expression building utility for DynamoDB ([#1527](https://github.com/SaiVishwas/aws-sdk-go/pull/1527))
   * Adds a new package, expression, to the SDK providing builder utilities to create DynamoDB expressions safely taking advantage of type safety.
-* `API Marshaler`: Add generated marshalers for RESTXML protocol ([#1409](https://github.com/aws/aws-sdk-go/pull/1409))
+* `API Marshaler`: Add generated marshalers for RESTXML protocol ([#1409](https://github.com/SaiVishwas/aws-sdk-go/pull/1409))
   * Updates the RESTXML protocol marshaler to use generated code instead of reflection for REST XML based services.
-* `API Marshaler`: Add generated marshalers for RESTJSON protocol ([#1547](https://github.com/aws/aws-sdk-go/pull/1547))
+* `API Marshaler`: Add generated marshalers for RESTJSON protocol ([#1547](https://github.com/SaiVishwas/aws-sdk-go/pull/1547))
   * Updates the RESTJSON protocol marshaler to use generated code instead of reflection for REST JSON based services.
 
 ### SDK Enhancements
-* `private/protocol`: Update format of REST JSON and XMl benchmarks ([#1546](https://github.com/aws/aws-sdk-go/pull/1546))
+* `private/protocol`: Update format of REST JSON and XMl benchmarks ([#1546](https://github.com/SaiVishwas/aws-sdk-go/pull/1546))
   * Updates the format of the REST JSON and XML benchmarks to be readable. RESTJSON benchmarks were updated to more accurately bench building of the protocol.
 
 Release v1.10.51 (2017-09-22)
@@ -6881,9 +6881,9 @@ Release v1.10.50 (2017-09-21)
   * Adds support for associating LogGroups with KMS Keys.
 
 ### SDK Bugs
-* Fix greengrass service model being duplicated with different casing. ([#1541](https://github.com/aws/aws-sdk-go/pull/1541))
-  * Fixes [#1540](https://github.com/aws/aws-sdk-go/issues/1540)
-  * Fixes [#1539](https://github.com/aws/aws-sdk-go/issues/1539)
+* Fix greengrass service model being duplicated with different casing. ([#1541](https://github.com/SaiVishwas/aws-sdk-go/pull/1541))
+  * Fixes [#1540](https://github.com/SaiVishwas/aws-sdk-go/issues/1540)
+  * Fixes [#1539](https://github.com/SaiVishwas/aws-sdk-go/issues/1539)
 
 Release v1.10.49 (2017-09-20)
 ===
@@ -6907,9 +6907,9 @@ Release v1.10.48 (2017-09-19)
   * Fixed bug in EC2 clients preventing ElasticGpuSet from being set.
 
 ### SDK Enhancements
-* `aws/credentials`: Add EnvProviderName constant. ([#1531](https://github.com/aws/aws-sdk-go/issues/1531))
+* `aws/credentials`: Add EnvProviderName constant. ([#1531](https://github.com/SaiVishwas/aws-sdk-go/issues/1531))
   * Adds the "EnvConfigCredentials" string literal as EnvProviderName constant.
-  * Fixes [#1444](https://github.com/aws/aws-sdk-go/issues/1444)
+  * Fixes [#1444](https://github.com/SaiVishwas/aws-sdk-go/issues/1444)
 
 Release v1.10.47 (2017-09-18)
 ===
@@ -6954,11 +6954,11 @@ Release v1.10.44 (2017-09-13)
   * Exposes ConcurrentModificationException as one of the valid exceptions for PutPermission and RemovePermission operation.
 
 ### SDK Enhancements
-* `service/autoscaling`: Fix documentation for PutScalingPolicy.AutoScalingGroupName [#1522](https://github.com/aws/aws-sdk-go/pull/1522)
-* `service/s3/s3manager`: Clarify S3 Upload manager Concurrency config [#1521](https://github.com/aws/aws-sdk-go/pull/1521)
-  * Fixes [#1458](https://github.com/aws/aws-sdk-go/issues/1458)
-* `service/dynamodb/dynamodbattribute`: Add support for time alias. [#1520](https://github.com/aws/aws-sdk-go/pull/1520)
-  * Related to [#1505](https://github.com/aws/aws-sdk-go/pull/1505)
+* `service/autoscaling`: Fix documentation for PutScalingPolicy.AutoScalingGroupName [#1522](https://github.com/SaiVishwas/aws-sdk-go/pull/1522)
+* `service/s3/s3manager`: Clarify S3 Upload manager Concurrency config [#1521](https://github.com/SaiVishwas/aws-sdk-go/pull/1521)
+  * Fixes [#1458](https://github.com/SaiVishwas/aws-sdk-go/issues/1458)
+* `service/dynamodb/dynamodbattribute`: Add support for time alias. [#1520](https://github.com/SaiVishwas/aws-sdk-go/pull/1520)
+  * Related to [#1505](https://github.com/SaiVishwas/aws-sdk-go/pull/1505)
 
 Release v1.10.43 (2017-09-12)
 ===
@@ -7033,8 +7033,8 @@ Release v1.10.36 (2017-08-31)
 * `service/lex-models`: Updates service API and documentation
 
 ### SDK Bugs
-* `aws/signer/v4`: Revert [#1491](https://github.com/aws/aws-sdk-go/issues/1491) as change conflicts with an undocumented AWS v4 signature test case.
-  * Related to: [#1495](https://github.com/aws/aws-sdk-go/issues/1495).
+* `aws/signer/v4`: Revert [#1491](https://github.com/SaiVishwas/aws-sdk-go/issues/1491) as change conflicts with an undocumented AWS v4 signature test case.
+  * Related to: [#1495](https://github.com/SaiVishwas/aws-sdk-go/issues/1495).
 
 Release v1.10.35 (2017-08-30)
 ===
@@ -7053,7 +7053,7 @@ Release v1.10.34 (2017-08-29)
   * Provides capability to add secondary CIDR blocks to a VPC.
 
 ### SDK Bugs
-* `aws/signer/v4`: Fix Signing Unordered Multi Value Query Parameters ([#1491](https://github.com/aws/aws-sdk-go/pull/1491))
+* `aws/signer/v4`: Fix Signing Unordered Multi Value Query Parameters ([#1491](https://github.com/SaiVishwas/aws-sdk-go/pull/1491))
   * Removes sorting of query string values when calculating v4 signing as this is not part of the spec. The spec only requires the keys, not values, to be sorted which is achieved by Query.Encode().
 
 Release v1.10.33 (2017-08-25)
@@ -7068,7 +7068,7 @@ Release v1.10.33 (2017-08-25)
   * Option group options now contain additional properties that identify requirements for certain options. Check these properties to determine if your DB instance must be in a VPC or have auto minor upgrade turned on before you can use an option. Check to see if you can downgrade the version of an option after you have installed it.
 
 ### SDK Enhancements
-* `example/service/ec2`: Add EC2 list instances example ([#1492](https://github.com/aws/aws-sdk-go/pull/1492))
+* `example/service/ec2`: Add EC2 list instances example ([#1492](https://github.com/SaiVishwas/aws-sdk-go/pull/1492))
 
 Release v1.10.32 (2017-08-25)
 ===
@@ -7115,13 +7115,13 @@ Release v1.10.27 (2017-08-16)
   * The Matchmaking Grouping Service is a new feature that groups player match requests for a given game together into game sessions based on developer configured rules.
 
 ### SDK Enhancements
-* `aws/arn`: aws/arn: Package for parsing and producing ARNs ([#1463](https://github.com/aws/aws-sdk-go/pull/1463))
+* `aws/arn`: aws/arn: Package for parsing and producing ARNs ([#1463](https://github.com/SaiVishwas/aws-sdk-go/pull/1463))
   * Adds the `arn` package for AWS ARN parsing and building. Use this package to build AWS ARNs for services such as outlined in the [documentation](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 
 ### SDK Bugs
-* `aws/signer/v4`: Correct V4 presign signature to include content sha25 in URL ([#1469](https://github.com/aws/aws-sdk-go/pull/1469))
+* `aws/signer/v4`: Correct V4 presign signature to include content sha25 in URL ([#1469](https://github.com/SaiVishwas/aws-sdk-go/pull/1469))
   * Updates the V4 signer so that when a Presign is generated the `X-Amz-Content-Sha256` header is added to the query string instead of being required to be in the header. This allows you to generate presigned URLs for GET requests, e.g S3.GetObject that do not require additional headers to be set by the downstream users of the presigned URL.
-  * Related To: [#1467](https://github.com/aws/aws-sdk-go/issues/1467)
+  * Related To: [#1467](https://github.com/SaiVishwas/aws-sdk-go/issues/1467)
 
 Release v1.10.26 (2017-08-15)
 ===
@@ -7184,7 +7184,7 @@ Release v1.10.21 (2017-08-09)
   * Add support for paginating the result of DescribeEnvironments     Include the ARN of described environments in DescribeEnvironments output
 
 ### SDK Enhancements
-* `aws`: Add pointer conversion utilities to transform int64 to time.Time [#1433](https://github.com/aws/aws-sdk-go/pull/1433)
+* `aws`: Add pointer conversion utilities to transform int64 to time.Time [#1433](https://github.com/SaiVishwas/aws-sdk-go/pull/1433)
   * Adds `SecondsTimeValue` and `MillisecondsTimeValue` utilities.
 
 Release v1.10.20 (2017-08-01)
@@ -7242,7 +7242,7 @@ Release v1.10.16 (2017-07-26)
   * AWS CloudFormation StackSets enables you to manage stacks across multiple accounts and regions.
 
 ### SDK Enhancements
-* `aws/signer/v4`: Optimize V4 signer's header duplicate space stripping. [#1417](https://github.com/aws/aws-sdk-go/pull/1417)
+* `aws/signer/v4`: Optimize V4 signer's header duplicate space stripping. [#1417](https://github.com/SaiVishwas/aws-sdk-go/pull/1417)
 
 Release v1.10.15 (2017-07-24)
 ===
@@ -7254,9 +7254,9 @@ Release v1.10.15 (2017-07-24)
   * Spot Fleet tagging capability allows customers to automatically tag instances launched by Spot Fleet. You can use this feature to label or distinguish instances created by distinct Spot Fleets. Tagging your EC2 instances also enables you to see instance cost allocation by tag in your AWS bill.
 
 ### SDK Bugs
-* `aws/signer/v4`: Fix out of bounds panic in stripExcessSpaces [#1412](https://github.com/aws/aws-sdk-go/pull/1412)
+* `aws/signer/v4`: Fix out of bounds panic in stripExcessSpaces [#1412](https://github.com/SaiVishwas/aws-sdk-go/pull/1412)
   * Fixes the out of bands panic in stripExcessSpaces caused by an incorrect calculation of the stripToIdx value. Simplified to code also.
-  * Fixes [#1411](https://github.com/aws/aws-sdk-go/issues/1411)
+  * Fixes [#1411](https://github.com/SaiVishwas/aws-sdk-go/issues/1411)
 
 Release v1.10.14 (2017-07-20)
 ===
@@ -7273,7 +7273,7 @@ Release v1.10.13 (2017-07-19)
   * Update budget Management API's to list/create/update RI_UTILIZATION type budget. Update budget Management API's to support DAILY timeUnit for RI_UTILIZATION type budget.
 
 ### SDK Enhancements
-* `service/s3`:  Use interfaces assertions instead of ValuesAtPath for S3 field lookups. [#1401](https://github.com/aws/aws-sdk-go/pull/1401)
+* `service/s3`:  Use interfaces assertions instead of ValuesAtPath for S3 field lookups. [#1401](https://github.com/SaiVishwas/aws-sdk-go/pull/1401)
   * Improves the performance across the board for all S3 API calls by removing the usage of `ValuesAtPath` being used for every S3 API call.
 
 ### SDK Bugs
@@ -7342,7 +7342,7 @@ Release v1.10.7 (2017-07-05)
   * Bug fix for InvalidChangeBatch exception.
 
 ### SDK Enhancements
-* `service/s3/s3manager`: adding cleanup function to batch objects [#1375](https://github.com/aws/aws-sdk-go/issues/1375)
+* `service/s3/s3manager`: adding cleanup function to batch objects [#1375](https://github.com/SaiVishwas/aws-sdk-go/issues/1375)
   * This enhancement will add an After field that will be called after each iteration of the batch operation.
 
 Release v1.10.6 (2017-06-30)
@@ -7374,9 +7374,9 @@ Release v1.10.4 (2017-06-27)
   * Proper tagging of resources is critical to post-launch operations such as billing, cost allocation, and resource management. By using Service Catalog's TagOption Library, administrators can define a library of re-usable TagOptions that conform to company standards, and associate these with Service Catalog portfolios and products. Learn how to move your current tags to the new library, create new TagOptions, and view and associate your library items with portfolios and products. Understand how to ensure that the right tags are created on products launched through Service Catalog and how to provide users with defined selectable tags.
 
 ### SDK Bugs
-* `aws/signer/v4`: checking length on `stripExcessSpaces` [#1372](https://github.com/aws/aws-sdk-go/issues/1372)
+* `aws/signer/v4`: checking length on `stripExcessSpaces` [#1372](https://github.com/SaiVishwas/aws-sdk-go/issues/1372)
   * Fixes a bug where `stripExcessSpaces` did not check length against the slice.
-  * Fixes: [#1371](https://github.com/aws/aws-sdk-go/issues/1371)
+  * Fixes: [#1371](https://github.com/SaiVishwas/aws-sdk-go/issues/1371)
 
 Release v1.10.3 (2017-06-23)
 ===
@@ -7422,7 +7422,7 @@ Release v1.10.0 (2017-06-20)
   * This release provides a new API to retrieve the activities performed by WorkDocs users.
 
 ### SDK Features
-* `aws/credentials/plugincreds`: Add support for Go plugin for credentials [#1320](https://github.com/aws/aws-sdk-go/pull/1320)
+* `aws/credentials/plugincreds`: Add support for Go plugin for credentials [#1320](https://github.com/SaiVishwas/aws-sdk-go/pull/1320)
   * Adds support for using plugins to retrieve credentials for API requests. This change adds a new package plugincreds under aws/credentials. See the `example/aws/credentials/plugincreds` folder in the SDK for example usage.
 
 Release v1.9.00 (2017-06-19)
@@ -7433,7 +7433,7 @@ Release v1.9.00 (2017-06-19)
   * Improvements to Exception Modeling
 
 ### SDK Features
-* `service/s3/s3manager`: Adds batch operations to s3manager [#1333](https://github.com/aws/aws-sdk-go/pull/1333)
+* `service/s3/s3manager`: Adds batch operations to s3manager [#1333](https://github.com/SaiVishwas/aws-sdk-go/pull/1333)
   * Allows for batch upload, download, and delete of objects. Also adds the interface pattern to allow for easy traversal of objects. E.G `DownloadWithIterator`, `UploadWithIterator`, and `BatchDelete`. `BatchDelete` also contains a utility iterator using the `ListObjects` API to easily delete a list of objects.
 
 Release v1.8.44 (2017-06-16)
@@ -7457,9 +7457,9 @@ Release v1.8.43 (2017-06-15)
   * Added ProvisioningArtifactSummaries to DescribeProductAsAdmin's output to show the provisioning artifacts belong to the product. Allow filtering by SourceProductId in SearchProductsAsAdmin for AWS Marketplace products. Added a verbose option to DescribeProvisioningArtifact to display the CloudFormation template used to create the provisioning artifact.Added DescribeProvisionedProduct API. Changed the type of ProvisionedProduct's Status to be distinct from Record's Status. New ProvisionedProduct's Status are AVAILABLE, UNDER_CHANGE, TAINTED, ERROR. Changed Record's Status set of values to CREATED, IN_PROGRESS, IN_PROGRESS_IN_ERROR, SUCCEEDED, FAILED.
 
 ### SDK Bugs
-* `private/model/api`: Fix RESTXML support for XML Namespace [#1343](https://github.com/aws/aws-sdk-go/pull/1343)
+* `private/model/api`: Fix RESTXML support for XML Namespace [#1343](https://github.com/SaiVishwas/aws-sdk-go/pull/1343)
   * Fixes a bug with the SDK's generation of services using the REST XML protocol not annotating shape references with the XML Namespace attribute.
-  * Fixes [#1334](https://github.com/aws/aws-sdk-go/pull/1334)
+  * Fixes [#1334](https://github.com/SaiVishwas/aws-sdk-go/pull/1334)
 
 Release v1.8.42 (2017-06-14)
 ===
@@ -7483,9 +7483,9 @@ Release v1.8.40 (2017-06-13)
   * API Update for RDS: this update enables copy-on-write, a new Aurora MySQL Compatible Edition feature that allows users to restore their database, and support copy of TDE enabled snapshot cross region.
 
 ### SDK Bugs
-* `aws/request`: Fix NewErrParamMinLen to use correct ParamMinLenErrCode [#1336](https://github.com/aws/aws-sdk-go/issues/1336)
+* `aws/request`: Fix NewErrParamMinLen to use correct ParamMinLenErrCode [#1336](https://github.com/SaiVishwas/aws-sdk-go/issues/1336)
   * Fixes the `NewErrParamMinLen` function returning the wrong error code. `ParamMinLenErrCode` should be returned not `ParamMinValueErrCode`.
-  * Fixes [#1335](https://github.com/aws/aws-sdk-go/issues/1335)
+  * Fixes [#1335](https://github.com/SaiVishwas/aws-sdk-go/issues/1335)
 
 Release v1.8.39 (2017-06-09)
 ===
@@ -7557,15 +7557,15 @@ Release v1.8.33 (2017-06-01)
 * `service/lexmodelbuildingservice`: Updates service documentation and examples
 
 ### SDK Enhancements
-* `aws/defaults`: Exports shared credentials and config default filenames used by the SDK. [#1308](https://github.com/aws/aws-sdk-go/pull/1308)
+* `aws/defaults`: Exports shared credentials and config default filenames used by the SDK. [#1308](https://github.com/SaiVishwas/aws-sdk-go/pull/1308)
   * Adds SharedCredentialsFilename and SharedConfigFilename functions to defaults package.
 
 ### SDK Bugs
-* `aws/credentials`: Fixes shared credential provider's default filename on Windows. [#1308](https://github.com/aws/aws-sdk-go/pull/1308)
+* `aws/credentials`: Fixes shared credential provider's default filename on Windows. [#1308](https://github.com/SaiVishwas/aws-sdk-go/pull/1308)
   * The shared credentials provider would attempt to use the wrong filename on Windows if the `HOME` environment variable was defined.
-* `service/s3/s3manager`: service/s3/s3manager: Fix Downloader ignoring Range get parameter [#1311](https://github.com/aws/aws-sdk-go/pull/1311)
+* `service/s3/s3manager`: service/s3/s3manager: Fix Downloader ignoring Range get parameter [#1311](https://github.com/SaiVishwas/aws-sdk-go/pull/1311)
   * Fixes the S3 Download Manager ignoring the GetObjectInput's Range parameter. If this parameter is provided it will force the downloader to fallback to a single GetObject request disabling concurrency and automatic part size gets.
-  * Fixes [#1296](https://github.com/aws/aws-sdk-go/issues/1296)
+  * Fixes [#1296](https://github.com/SaiVishwas/aws-sdk-go/issues/1296)
 
 Release v1.8.32 (2017-05-31)
 ===
@@ -7619,12 +7619,12 @@ Release v1.8.27 (2017-05-22)
   * You can now specify the number of resources returned per page in GetResources operation, as an optional parameter, to easily manage the list of resources returned by your queries.
 
 ### SDK Bugs
-* `aws/request`: Add support for PUT temporary redirects (307) [#1283](https://github.com/aws/aws-sdk-go/issues/1283)
+* `aws/request`: Add support for PUT temporary redirects (307) [#1283](https://github.com/SaiVishwas/aws-sdk-go/issues/1283)
   * Adds support for Go 1.8's GetBody function allowing the SDK's http request using PUT and POST methods to be redirected with temporary redirects with 307 status code.
-  * Fixes: [#1267](https://github.com/aws/aws-sdk-go/issues/1267)
-* `aws/request`: Add handling for retrying temporary errors during unmarshal [#1289](https://github.com/aws/aws-sdk-go/issues/1289)
+  * Fixes: [#1267](https://github.com/SaiVishwas/aws-sdk-go/issues/1267)
+* `aws/request`: Add handling for retrying temporary errors during unmarshal [#1289](https://github.com/SaiVishwas/aws-sdk-go/issues/1289)
   * Adds support for retrying temporary errors that occur during unmarshaling of a request's response body.
-  * Fixes: [#1275](https://github.com/aws/aws-sdk-go/issues/1275)
+  * Fixes: [#1275](https://github.com/SaiVishwas/aws-sdk-go/issues/1275)
 
 Release v1.8.26 (2017-05-18)
 ===
@@ -7674,7 +7674,7 @@ Release v1.8.23 (2017-05-15)
   * UpdateAssociation API now supports updating document name and targets of an association. GetAutomationExecution API can return FailureDetails as an optional field to the StepExecution Object, which contains failure type, failure stage as well as other failure related information for a failed step.
 
 ### SDK Enhancements
-* `aws/session`: SDK should be able to load multiple custom shared config files. [#1258](https://github.com/aws/aws-sdk-go/issues/1258)
+* `aws/session`: SDK should be able to load multiple custom shared config files. [#1258](https://github.com/SaiVishwas/aws-sdk-go/issues/1258)
   * This change adds a `SharedConfigFiles` field to the `session.Options` type that allows you to specify the files, and their order, the SDK will use for loading shared configuration and credentials from when the `Session` is created. Use the `NewSessionWithOptions` Session constructor to specify these options. You'll also most likely want to enable support for the shared configuration file's additional attributes by setting `session.Option`'s `SharedConfigState` to `session.SharedConfigEnabled`.
 
 Release v1.8.22 (2017-05-11)
@@ -8546,7 +8546,7 @@ SDK Bug Fixes
 ---
 * `private/protocol/xml/xmlutil`: Fixes xml marshaler to unmarshal properly
 into tagged fields
-[#916](https://github.com/aws/aws-sdk-go/issues/916)
+[#916](https://github.com/SaiVishwas/aws-sdk-go/issues/916)
 
 Release v1.5.9 (2016-11-22)
 ===
@@ -8704,7 +8704,7 @@ Service Model Updates
 
 SDK Features
 ---
-* `service/s3`: Add support for accelerate with dualstack [#887](https://github.com/aws/aws-sdk-go/issues/887)
+* `service/s3`: Add support for accelerate with dualstack [#887](https://github.com/SaiVishwas/aws-sdk-go/issues/887)
 
 Release v1.4.16 (2016-10-13)
 ===
@@ -8718,15 +8718,15 @@ Service Model Updates
 
 SDK Bug Fixes
 ---
-* `aws/session`: Skip shared config on read errors [#883](https://github.com/aws/aws-sdk-go/issues/883)
-* `aws/signer/v4`: Add support for URL.EscapedPath to signer [#885](https://github.com/aws/aws-sdk-go/issues/885)
+* `aws/session`: Skip shared config on read errors [#883](https://github.com/SaiVishwas/aws-sdk-go/issues/883)
+* `aws/signer/v4`: Add support for URL.EscapedPath to signer [#885](https://github.com/SaiVishwas/aws-sdk-go/issues/885)
 
 SDK Features
 ---
-* `private/model/api`: Add docs for errors to API operations [#881](https://github.com/aws/aws-sdk-go/issues/881)
-* `private/model/api`: Improve field and waiter doc strings [#879](https://github.com/aws/aws-sdk-go/issues/879)
-* `service/dynamodb/dynamodbattribute`: Allow multiple struct tag elements [#886](https://github.com/aws/aws-sdk-go/issues/886)
-* Add build tags to internal SDK tools [#880](https://github.com/aws/aws-sdk-go/issues/880)
+* `private/model/api`: Add docs for errors to API operations [#881](https://github.com/SaiVishwas/aws-sdk-go/issues/881)
+* `private/model/api`: Improve field and waiter doc strings [#879](https://github.com/SaiVishwas/aws-sdk-go/issues/879)
+* `service/dynamodb/dynamodbattribute`: Allow multiple struct tag elements [#886](https://github.com/SaiVishwas/aws-sdk-go/issues/886)
+* Add build tags to internal SDK tools [#880](https://github.com/SaiVishwas/aws-sdk-go/issues/880)
 
 Release v1.4.15 (2016-10-06)
 ===
@@ -8741,12 +8741,12 @@ Service Model Updates
 
 SDK Bug Fixes
 ---
-* `aws/request`: Fix HTTP Request Body race condition [#874](https://github.com/aws/aws-sdk-go/issues/874)
+* `aws/request`: Fix HTTP Request Body race condition [#874](https://github.com/SaiVishwas/aws-sdk-go/issues/874)
 
 SDK Feature Updates
 ---
-* `aws/ec2metadata`: Add support for EC2 User Data [#872](https://github.com/aws/aws-sdk-go/issues/872)
-* `aws/signer/v4`: Remove logic determining if request needs to be resigned [#876](https://github.com/aws/aws-sdk-go/issues/876)
+* `aws/ec2metadata`: Add support for EC2 User Data [#872](https://github.com/SaiVishwas/aws-sdk-go/issues/872)
+* `aws/signer/v4`: Remove logic determining if request needs to be resigned [#876](https://github.com/SaiVishwas/aws-sdk-go/issues/876)
 
 Release v1.4.14 (2016-09-29)
 ===

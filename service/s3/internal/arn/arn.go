@@ -3,7 +3,7 @@ package arn
 import (
 	"strings"
 
-	"github.com/aws/aws-sdk-go/aws/arn"
+	"github.com/SaiVishwas/aws-sdk-go/aws/arn"
 )
 
 // Resource provides the interfaces abstracting ARNs of specific resource

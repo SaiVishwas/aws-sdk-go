@@ -4,10 +4,10 @@ import (
 	"bytes"
 	//"encoding/json"
 	"fmt"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/client/metadata"
-	"github.com/aws/aws-sdk-go/internal/sdkio"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client/metadata"
+	"github.com/SaiVishwas/aws-sdk-go/internal/sdkio"
 	"io"
 	"log"
 	"net/http"
@@ -42,7 +42,6 @@ const (
 	// ErrCodeRequestError is an error preventing the SDK from continuing to
 	// process the request.
 	ErrCodeRequestError = "RequestError"
-
 )
 
 // A Request is the service request to be made.
@@ -95,7 +94,6 @@ type Request struct {
 	// to the HTTP request's body after the client has returned. This value is
 	// safe to use concurrently and wrap the input Body for each HTTP request.
 	safeBody *offsetReader
-
 }
 
 // An Operation is the service API operation to be made.

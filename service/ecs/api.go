@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awsutil"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/private/protocol"
-	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awsutil"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol/jsonrpc"
 )
 
 const opCreateCapacityProvider = "CreateCapacityProvider"
@@ -13042,7 +13042,7 @@ type LogConfiguration struct {
 	// in the Amazon Elastic Container Service Developer Guide.
 	//
 	// If you have a custom driver that is not listed, you can fork the Amazon ECS
-	// container agent project that is available on GitHub (https://github.com/aws/amazon-ecs-agent)
+	// container agent project that is available on GitHub (https://github.com/SaiVishwas/amazon-ecs-agent)
 	// and customize it to work with that driver. We encourage you to submit pull
 	// requests for changes that you would like to have included. However, we do
 	// not currently provide support for running modified copies of this software.
@@ -19560,7 +19560,7 @@ type VersionInfo struct {
 	_ struct{} `type:"structure"`
 
 	// The Git commit hash for the Amazon ECS container agent build on the amazon-ecs-agent
-	// (https://github.com/aws/amazon-ecs-agent/commits/master) GitHub repository.
+	// (https://github.com/SaiVishwas/amazon-ecs-agent/commits/master) GitHub repository.
 	AgentHash *string `locationName:"agentHash" type:"string"`
 
 	// The version number of the Amazon ECS container agent.

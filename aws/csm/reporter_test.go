@@ -11,15 +11,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/client"
-	"github.com/aws/aws-sdk-go/aws/client/metadata"
-	"github.com/aws/aws-sdk-go/aws/csm"
-	"github.com/aws/aws-sdk-go/aws/request"
-	v4 "github.com/aws/aws-sdk-go/aws/signer/v4"
-	"github.com/aws/aws-sdk-go/awstesting/unit"
-	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/awserr"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client"
+	"github.com/SaiVishwas/aws-sdk-go/aws/client/metadata"
+	"github.com/SaiVishwas/aws-sdk-go/aws/csm"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	v4 "github.com/SaiVishwas/aws-sdk-go/aws/signer/v4"
+	"github.com/SaiVishwas/aws-sdk-go/awstesting/unit"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol/jsonrpc"
 )
 
 func TestReportingMetrics(t *testing.T) {
@@ -183,7 +183,7 @@ func TestReportingMetrics(t *testing.T) {
 				{
 					"Type":                "ApiCallAttempt",
 					"SdkException":        request.ErrCodeRequestError,
-					"SdkExceptionMessage": request.ErrCodeRequestError+": sdk error",
+					"SdkExceptionMessage": request.ErrCodeRequestError + ": sdk error",
 					"HttpStatusCode":      float64(500),
 				},
 				{

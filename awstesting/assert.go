@@ -12,7 +12,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aws/aws-sdk-go/private/protocol/xml/xmlutil"
+	"github.com/SaiVishwas/aws-sdk-go/private/protocol/xml/xmlutil"
 )
 
 // Match is a testing helper to test for testing error by comparing expected

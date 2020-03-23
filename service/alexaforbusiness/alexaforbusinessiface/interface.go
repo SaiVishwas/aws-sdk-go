@@ -9,9 +9,9 @@
 package alexaforbusinessiface
 
 import (
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/request"
-	"github.com/aws/aws-sdk-go/service/alexaforbusiness"
+	"github.com/SaiVishwas/aws-sdk-go/aws"
+	"github.com/SaiVishwas/aws-sdk-go/aws/request"
+	"github.com/SaiVishwas/aws-sdk-go/service/alexaforbusiness"
 )
 
 // AlexaForBusinessAPI provides an interface to enable mocking the
