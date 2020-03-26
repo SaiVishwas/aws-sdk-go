@@ -9,7 +9,6 @@ import (
 	"github.com/SaiVishwas/aws-sdk-go/aws/client/metadata"
 	"github.com/SaiVishwas/aws-sdk-go/internal/sdkio"
 	"io"
-	"log"
 	"net/http"
 	"net/http/httptrace"
 	"net/url"
@@ -121,8 +120,8 @@ func incrementCounter(key string) {
 	}
 	//log.Println(Counter)
 
-	log.Println("Requests Counter: ")
-	log.Println(Counter)
+	fmt.Println("Requests Counter: ")
+	fmt.Println(Counter)
 }
 
 // New returns a new Request pointer for the service API operation and
